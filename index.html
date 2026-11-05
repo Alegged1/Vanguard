@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  ╔════════════════════════════════════════════════════════════════════╗
+  ║                     VANGUARD — TEAM DATA                           ║
+  ╠════════════════════════════════════════════════════════════════════╣
+  ║  EASIEST WAY TO EDIT: open your site with  ?edit  at the end of    ║
+  ║  the address, e.g.  https://YOURNAME.github.io/Vanguard/?edit      ║
+  ║  Make your changes, press "Download updated site", then upload     ║
+  ║  the downloaded index.html to GitHub. (See README.md.)             ║
+  ║                                                                    ║
+  ║  OR edit the list below by hand. One line per member:              ║
+  ║    name   = name shown on the card                                 ║
+  ║    skin   = Minecraft username the skin is loaded from             ║
+  ║    title  = text at the bottom of the card, e.g. "The Lion"        ║
+  ║    rating = Quips rating 0.1 – 2.0  (use null for no rating)       ║
+  ║    owner  = true  → crown badge, always shown first                ║
+  ║    bio    = short bio or quote shown on hover / tap                ║
+  ║  Keep the quotes "" and the commas exactly as they are.            ║
+  ║  Order doesn't matter: cards are sorted by rating automatically.   ║
+  ╚════════════════════════════════════════════════════════════════════╝
+-->
+<script>
+/* ===== VANGUARD DATA START ===== (everything down to DATA END is rewritten by the editor) */
+window.VANGUARD = {
+  team: {
+    name: "Vanguard",
+    tagline: "A Legions PvP team"
+  },
+  members: [
+    { name: "Alegged", skin: "Alegged", title: "", rating: null, owner: true, bio: "" },
+    { name: "Pillarger", skin: "Pillarger", title: "", rating: 1.8, bio: "" },
+    { name: "EMPolse", skin: "EMPolse", title: "", rating: 1.7, bio: "" },
+    { name: "qPengu", skin: "qPengu", title: "", rating: 1.6, bio: "" },
+    { name: "Ifny", skin: "Ifny", title: "", rating: 1.4, bio: "" },
+    { name: "Nightmare2g", skin: "Nightmare2g", title: "", rating: 1.3, bio: "" },
+    { name: "shuri11", skin: "shuri11", title: "", rating: 1.3, bio: "" },
+    { name: "WhatVenom", skin: "WhatVenom", title: "", rating: 1.2, bio: "" },
+    { name: "SonnyD__", skin: "SonnyD__", title: "", rating: 1.2, bio: "" },
+    { name: "Quickzol", skin: "Quickzol", title: "", rating: 1.0, bio: "" },
+    { name: "DGSgmes", skin: "DGSgmes", title: "", rating: 0.9, bio: "" },
+    { name: "ChickenKing62", skin: "ChickenKing62", title: "", rating: 0.7, bio: "" },
+    { name: "XSwordd", skin: "XSwordd", title: "", rating: 0.7, bio: "" }
+  ]
+};
+/* ===== VANGUARD DATA END ===== */
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vanguard · Legions</title>
+<meta name="description" content="Vanguard — a team in the Legions Minecraft PvP community. Meet the roster.">
+<meta name="theme-color" content="#0b1438">
+<meta property="og:title" content="Vanguard · Legions">
+<meta property="og:description" content="Meet the Vanguard roster.">
+<meta property="og:image" content="logo.png">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --navy-950: #060b20;
+  --navy-900: #0b1438;
+  --navy-850: #0f1a47;
+  --navy-800: #13235a;
+  --navy-700: #1c3174;
+  --ice: #a9dcf5;
+  --ice-deep: #7cc4ea;
+  --silver: #c3c7cf;
+  --steel: #8a8f99;
+  --paper: #f4f4f4;
+  --lavender: #b9b3d6;
+  --danger: #f39a9a;
+
+  --text: #e6e9f0;
+  --text-dim: #a3abbd;
+  --line: rgba(195, 199, 207, 0.28);
+  --line-strong: rgba(195, 199, 207, 0.55);
+  --glow: 0 0 0 1px rgba(169, 220, 245, 0.55), 0 0 28px rgba(124, 196, 234, 0.28), 0 12px 40px rgba(0, 0, 0, 0.45);
+
+  --font-display: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius: 6px;
+  --gutter: 16px;
+  --editor-w: 0px;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: var(--navy-950);
+  background-image:
+    radial-gradient(ellipse 80% 55% at 50% -5%, rgba(28, 49, 116, 0.85), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 8%, rgba(124, 196, 234, 0.10), transparent 70%),
+    linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 60%);
+  background-attachment: fixed;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+body::before { /* faint diamond lattice, like a heraldic field */
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image:
+    linear-gradient(45deg, var(--silver) 1px, transparent 1px),
+    linear-gradient(-45deg, var(--silver) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 75%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 75%);
+}
+.page { position: relative; padding-right: var(--editor-w); transition: padding-right .25s ease; }
+
+/* ---------- Header ---------- */
+.hero {
+  text-align: center;
+  padding: clamp(28px, 6vw, 64px) var(--gutter) 12px;
+}
+.crest-wrap { position: relative; display: inline-block; }
+.crest-wrap::before {
+  content: "";
+  position: absolute; inset: 12% 10%;
+  background: radial-gradient(closest-side, rgba(124, 196, 234, 0.30), transparent);
+  filter: blur(18px);
+  z-index: -1;
+}
+.crest {
+  display: block;
+  width: min(380px, 72vw);
+  height: auto;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.55));
+}
+.team-name {
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 8vw, 4.4rem);
+  letter-spacing: 0.18em;
+  line-height: 1.05;
+  padding-left: 0.18em; /* balance trailing letter-spacing */
+  background: linear-gradient(180deg, #ffffff 0%, var(--paper) 35%, var(--silver) 65%, var(--steel) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.0);
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.55));
+}
+.tagline {
+  margin: 10px 0 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: clamp(0.72rem, 2.4vw, 0.9rem);
+  color: var(--ice);
+}
+.divider {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  margin: 26px auto 0; max-width: 520px;
+  color: var(--silver);
+}
+.divider::before, .divider::after {
+  content: ""; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong));
+}
+.divider::after { background: linear-gradient(270deg, transparent, var(--line-strong)); }
+.divider span { font-family: var(--font-display); font-size: .78rem; letter-spacing: .24em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+
+/* ---------- Roster grid ---------- */
+.roster {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px var(--gutter) 56px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(218px, 1fr));
+  gap: 20px;
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+@media (max-width: 300px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Card ---------- */
+.card {
+  position: relative;
+  display: flex; flex-direction: column;
+  background: linear-gradient(180deg, rgba(19, 35, 90, 0.72), rgba(11, 20, 56, 0.88));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.card:hover, .card:focus-visible, .card.is-open {
+  border-color: rgba(169, 220, 245, 0.6);
+  box-shadow: var(--glow);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { transform: translateY(-3px); }
+}
+.card.is-owner {
+  border-color: rgba(195, 199, 207, 0.5);
+  background:
+    linear-gradient(180deg, rgba(169, 220, 245, 0.10), transparent 40%),
+    linear-gradient(180deg, rgba(19, 35, 90, 0.8), rgba(11, 20, 56, 0.9));
+}
+.card.is-owner::before { /* thin ice line across the top */
+  content: ""; position: absolute; left: 12px; right: 12px; top: -1px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ice), transparent);
+}
+
+.card-head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+  min-height: 44px;
+}
+.name-block { min-width: 0; }
+.player-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.92rem, 3.6vw, 1.12rem);
+  letter-spacing: 0.04em;
+  color: var(--paper);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.rank {
+  display: block;
+  font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 1px;
+}
+.owner-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  color: var(--ice);
+}
+.owner-badge svg { width: 14px; height: 14px; flex: none; }
+
+.quips {
+  flex: none;
+  text-align: right;
+  line-height: 1;
+}
+.quips-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.35rem, 5vw, 1.7rem);
+  letter-spacing: 0.02em;
+  color: var(--ice);
+  text-shadow: 0 0 14px rgba(124, 196, 234, 0.45);
+}
+.quips-label {
+  display: block; margin-top: 3px;
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+.quips[data-tier="high"] .quips-value { color: #d9f2ff; text-shadow: 0 0 16px rgba(169, 220, 245, 0.8); }
+.quips[data-tier="low"] .quips-value { color: var(--silver); text-shadow: none; }
+.quips.is-none .quips-value { color: var(--steel); text-shadow: none; }
+.crown-mark {
+  flex: none;
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border: 1px solid rgba(169, 220, 245, 0.55);
+  border-radius: 50%;
+  color: var(--ice);
+  background: radial-gradient(circle, rgba(169, 220, 245, 0.18), transparent 70%);
+  box-shadow: 0 0 14px rgba(124, 196, 234, 0.35);
+}
+.crown-mark svg { width: 20px; height: 20px; }
+
+.meter { /* rating bar under the header: 0.1 – 2.0 */
+  height: 2px; margin: 8px 0 10px;
+  background: rgba(195, 199, 207, 0.15);
+  border-radius: 2px; overflow: hidden;
+}
+.meter i {
+  display: block; height: 100%; width: var(--pct, 0%);
+  background: linear-gradient(90deg, var(--ice-deep), var(--ice));
+  box-shadow: 0 0 8px var(--ice-deep);
+  transition: width .4s ease;
+}
+.card.is-owner .meter i { width: 100%; background: linear-gradient(90deg, var(--lavender), var(--silver), var(--ice)); box-shadow: none; }
+
+/* The framed skin stage */
+.stage {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 42%, rgba(124, 196, 234, 0.16), transparent 70%),
+    linear-gradient(180deg, rgba(6, 11, 32, 0.35), rgba(6, 11, 32, 0.75));
+  overflow: hidden;
+  touch-action: pan-y; /* horizontal drags spin the model; vertical swipes still scroll */
+  cursor: grab;
+  user-select: none; -webkit-user-select: none;
+}
+.stage.is-dragging { cursor: grabbing; }
+.stage::before, .stage::after { /* corner brackets */
+  content: ""; position: absolute; width: 14px; height: 14px; pointer-events: none; z-index: 2;
+  border: 1px solid var(--silver);
+  opacity: .75;
+}
+.stage::before { left: 5px; top: 5px; border-right: 0; border-bottom: 0; }
+.stage::after { right: 5px; bottom: 5px; border-left: 0; border-top: 0; }
+.stage .floor {
+  position: absolute; left: 22%; right: 22%; bottom: 7%; height: 7%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.55), transparent);
+  pointer-events: none;
+}
+.stage canvas, .stage img.flat {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  display: block;
+}
+.stage img.flat { object-fit: contain; padding: 10% 14%; image-rendering: pixelated; }
+.stage .loading {
+  position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none;
+  transition: opacity .3s ease;
+}
+.stage .loading::before {
+  content: ""; width: 26px; height: 26px; border-radius: 50%;
+  border: 2px solid rgba(195, 199, 207, 0.2); border-top-color: var(--ice);
+  animation: spin 0.9s linear infinite;
+}
+.stage.is-ready .loading { opacity: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+/* Bio: hover on desktop, tap on touch */
+.bio {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+  padding: 26px 12px 12px;
+  background: linear-gradient(180deg, transparent, rgba(6, 11, 32, 0.86) 26%, rgba(6, 11, 32, 0.95));
+  font-size: 0.82rem; line-height: 1.45;
+  color: var(--text);
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+.bio p { margin: 0; }
+.bio p::before { content: "“"; font-family: var(--font-display); color: var(--ice); font-size: 1.3em; line-height: 0; margin-right: 2px; vertical-align: -0.12em; }
+.bio p::after { content: "”"; font-family: var(--font-display); color: var(--ice); font-size: 1.3em; line-height: 0; margin-left: 2px; vertical-align: -0.12em; }
+.bio.is-placeholder p { color: var(--text-dim); font-style: italic; }
+.card.is-open .bio, .card:focus-visible .bio { opacity: 1; transform: none; }
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .bio { opacity: 1; transform: none; }
+}
+.tap-hint {
+  position: absolute; right: 7px; bottom: 7px; z-index: 2;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: grid; place-items: center;
+  font: 700 12px/1 var(--font-display);
+  color: var(--navy-900); background: var(--silver);
+  opacity: .8; pointer-events: none;
+  transition: opacity .2s ease;
+}
+@media (hover: hover) and (pointer: fine) { .tap-hint { display: none; } }
+.card.is-open .tap-hint { opacity: 0; }
+
+.card-title {
+  margin: 10px 0 0;
+  min-height: 1.5em;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.8rem, 3.2vw, 0.95rem);
+  letter-spacing: 0.08em;
+  color: var(--silver);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.card-title.is-placeholder { color: var(--steel); font-weight: 500; letter-spacing: .2em; text-transform: uppercase; font-size: .7rem; padding-top: .2em; }
+
+@media (max-width: 560px) {
+  .card { padding: 9px; }
+  .card-head { min-height: 40px; }
+  .crown-mark { width: 32px; height: 32px; }
+  .crown-mark svg { width: 17px; height: 17px; }
+  .bio { font-size: 0.74rem; padding: 22px 9px 9px; }
+  .rank { font-size: .58rem; letter-spacing: .12em; }
+}
+
+.footer {
+  text-align: center;
+  padding: 0 var(--gutter) 40px;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+.footer strong { font-family: var(--font-display); letter-spacing: .14em; color: var(--silver); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* ---------- Edit mode (only visible with ?edit in the URL) ---------- */
+.editor {
+  position: fixed; z-index: 50;
+  top: 0; right: 0; bottom: 0;
+  width: min(400px, 100vw);
+  display: flex; flex-direction: column;
+  background: #0a122f;
+  border-left: 1px solid var(--line-strong);
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.45);
+  font-size: 0.9rem;
+  transition: transform .25s ease;
+}
+.editor.is-collapsed { transform: translateX(100%); }
+.editor-head {
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(28, 49, 116, 0.6), transparent);
+}
+.editor-head h2 { margin: 0; font-family: var(--font-display); font-size: 1.05rem; letter-spacing: .12em; color: var(--paper); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.editor-status { margin: 4px 0 0; font-size: .76rem; color: var(--text-dim); min-height: 1.2em; }
+.editor-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.editor-body { flex: 1; overflow-y: auto; padding: 12px 16px 24px; overscroll-behavior: contain; }
+.editor-notice {
+  margin: 0 0 12px; padding: 10px 12px;
+  border: 1px solid rgba(169, 220, 245, 0.45); border-radius: var(--radius);
+  background: rgba(124, 196, 234, 0.08);
+  font-size: .8rem;
+}
+.editor-notice[hidden] { display: none; }
+.editor-notice .btn { margin-top: 8px; }
+.editor-section-title { margin: 18px 0 8px; font-family: var(--font-display); font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ice); }
+.btn {
+  appearance: none;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 36px; padding: 7px 12px;
+  font: 600 .82rem/1.2 var(--font-body);
+  color: var(--text);
+  background: rgba(195, 199, 207, 0.08);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--ice); background: rgba(169, 220, 245, 0.12); }
+.btn:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+.btn-primary { background: linear-gradient(180deg, #bfe6f9, var(--ice-deep)); color: var(--navy-900); border-color: transparent; }
+.btn-primary:hover { background: linear-gradient(180deg, #d6f0fc, var(--ice)); border-color: transparent; }
+.btn-danger { color: var(--danger); border-color: rgba(243, 154, 154, 0.45); }
+.btn-danger:hover { border-color: var(--danger); background: rgba(243, 154, 154, 0.1); }
+.btn-small { min-height: 30px; padding: 4px 10px; font-size: .76rem; }
+.btn-wide { width: 100%; }
+.member-row {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  background: rgba(19, 35, 90, 0.35);
+}
+.member-row[open] { border-color: rgba(169, 220, 245, 0.5); background: rgba(19, 35, 90, 0.6); }
+.member-row summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 12px;
+  font-weight: 600;
+}
+.member-row summary::-webkit-details-marker { display: none; }
+.member-row summary::before { content: "▸"; color: var(--steel); transition: transform .15s ease; }
+.member-row[open] summary::before { transform: rotate(90deg); }
+.member-row summary .sum-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.member-row summary .sum-meta { color: var(--ice); font-family: var(--font-display); font-weight: 700; }
+.member-row summary .sum-warn { color: var(--danger); }
+.fields { padding: 4px 12px 12px; display: grid; gap: 10px; }
+.field label { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
+.field input[type="text"], .field input[type="number"], .field textarea {
+  width: 100%;
+  padding: 8px 10px;
+  font: 500 16px/1.35 var(--font-body); /* 16px avoids iOS zoom-on-focus */
+  color: var(--paper);
+  background: rgba(6, 11, 32, 0.7);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+}
+.field textarea { min-height: 72px; resize: vertical; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--ice); box-shadow: 0 0 0 3px rgba(124, 196, 234, 0.2); }
+.field.is-invalid input { border-color: var(--danger); }
+.field .help { margin-top: 4px; font-size: .72rem; color: var(--text-dim); }
+.field.is-invalid .help { color: var(--danger); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.check { display: flex; align-items: center; gap: 8px; font-size: .84rem; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--ice-deep); }
+.row-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.skin-status { font-size: .72rem; color: var(--text-dim); }
+.skin-status.is-bad { color: var(--danger); }
+.editor-fab {
+  position: fixed; z-index: 49; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom));
+  box-shadow: 0 8px 24px rgba(0,0,0,.5);
+}
+.editor-fab[hidden] { display: none; }
+.toast {
+  position: fixed; z-index: 60; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom));
+  transform: translate(-50%, 20px);
+  width: min(460px, calc(100vw - 32px));
+  padding: 12px 14px;
+  background: #0f1a47; color: var(--text);
+  border: 1px solid var(--ice); border-radius: var(--radius);
+  box-shadow: var(--glow);
+  font-size: .84rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.edit-flag {
+  position: fixed; z-index: 48; left: 12px; top: 12px;
+  padding: 4px 10px; border-radius: 999px;
+  font: 700 .68rem/1.4 var(--font-body); letter-spacing: .16em; text-transform: uppercase;
+  color: var(--navy-900); background: var(--ice);
+}
+body.editing .card { cursor: pointer; }
+body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glow); }
+@media (min-width: 900px) {
+  body.editing.editor-open { --editor-w: 400px; }
+}
+@media (max-width: 899px) {
+  .editor { top: auto; left: 0; width: 100%; height: min(72vh, 640px); border-left: 0; border-top: 1px solid var(--line-strong); border-radius: 12px 12px 0 0; }
+  .editor.is-collapsed { transform: translateY(100%); }
+  body.editing.editor-open .roster { padding-bottom: 74vh; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="crest-wrap">
+      <img class="crest" src="logo.png" alt="The Vanguard crest: a navy shield with crossed swords, framed by ice-blue roses and laurel leaves" width="835" height="783" fetchpriority="high">
+    </div>
+    <h1 class="team-name" id="team-name">Vanguard</h1>
+    <p class="tagline" id="team-tagline">A Legions PvP team</p>
+    <div class="divider"><span id="member-count">The Roster</span></div>
+  </header>
+
+  <main class="roster">
+    <div class="grid" id="grid" aria-live="polite"></div>
+    <noscript><p style="text-align:center;color:#a3abbd">Turn on JavaScript to see the Vanguard roster.</p></noscript>
+  </main>
+
+  <footer class="footer">
+    <strong id="footer-name">VANGUARD</strong> · Legions PvP · Skins load live from Minecraft usernames
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* Snapshot of this page's own source, taken before anything is changed.
+     Used by "Download updated site" if the file can't be re-fetched (e.g. opened from disk). */
+  var PAGE_SNAPSHOT = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+
+  var MARK_START = "/* ===== VANGUARD " + "DATA START =====";
+  var MARK_END = "/* ===== VANGUARD " + "DATA END ===== */";
+  var DRAFT_KEY = "vanguard-editor-draft-v1";
+  var EDIT_MODE = new URLSearchParams(location.search).has("edit");
+
+  var SKINVIEW_URLS = [
+    "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/bundles/skinview3d.bundle.js",
+    "https://unpkg.com/skinview3d@3.4.2/bundles/skinview3d.bundle.js"
+  ];
+  var SKINVIEW_SRI = "sha384-IpD3xE/jsAa6T7+6PYhg/3FZ+8dAqrFryxJsRs3pCgIYC9b7rUZZbvSMOI1aoQkb";
+  /* Skin services that allow cross-origin loading by username, tried in order. */
+  var SKIN_SOURCES = [
+    { label: "mc-heads.net", url: function (n) { return "https://mc-heads.net/skin/" + encodeURIComponent(n); } },
+    { label: "minotar.net", url: function (n) { return "https://minotar.net/skin/" + encodeURIComponent(n); } }
+  ];
+  var FLAT_BODY_URL = function (n) { return "https://mc-heads.net/body/" + encodeURIComponent(n) + "/240"; };
+
+  var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------------- Data helpers ---------------- */
+  var nextId = 1;
+  function normalizeMember(m) {
+    m = m || {};
+    var rating = m.rating;
+    if (rating === "" || rating === undefined || rating === null || isNaN(Number(rating))) rating = null;
+    else rating = Number(rating);
+    return {
+      _id: nextId++,
+      name: String(m.name == null ? "" : m.name),
+      skin: String(m.skin == null ? "" : m.skin),
+      title: String(m.title == null ? "" : m.title),
+      rating: rating,
+      owner: m.owner === true,
+      bio: String(m.bio == null ? "" : m.bio)
+    };
+  }
+  function normalize(data) {
+    data = data || {};
+    var team = data.team || {};
+    return {
+      team: { name: String(team.name || "Vanguard"), tagline: String(team.tagline == null ? "" : team.tagline) },
+      members: (data.members || []).map(normalizeMember)
+    };
+  }
+  function ratingValid(r) { return r === null || (typeof r === "number" && r >= 0.1 && r <= 2.0); }
+  function sortMembers(list) {
+    return list.slice().sort(function (a, b) {
+      if (a.owner !== b.owner) return a.owner ? -1 : 1;
+      var ra = (!a.owner && ratingValid(a.rating) && a.rating !== null) ? a.rating : -1;
+      var rb = (!b.owner && ratingValid(b.rating) && b.rating !== null) ? b.rating : -1;
+      if (ra !== rb) return rb - ra;
+      return (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: "base" });
+    });
+  }
+  function fmtRating(r) {
+    var s = (Math.round(r * 100) / 100).toString();
+    return s.indexOf(".") === -1 ? s + ".0" : s;
+  }
+  function skinNameOf(m) { return (m.skin || m.name || "").trim(); }
+
+  /* Turns the data back into the text block that lives at the top of index.html. */
+  function serialize(data) {
+    var q = function (v) { return JSON.stringify(v).replace(/</g, "\\u003c").replace(/[\u2028]/g, "\\u2028").replace(/[\u2029]/g, "\\u2029"); };
+    var lines = sortMembers(data.members).map(function (m) {
+      var parts = [
+        "name: " + q(m.name),
+        "skin: " + q(m.skin || m.name),
+        "title: " + q(m.title),
+        "rating: " + (m.owner || m.rating === null ? "null" : fmtRating(m.rating))
+      ];
+      if (m.owner) parts.push("owner: true");
+      parts.push("bio: " + q(m.bio));
+      return "    { " + parts.join(", ") + " }";
+    });
+    return "window.VANGUARD = {\n" +
+      "  team: {\n" +
+      "    name: " + q(data.team.name) + ",\n" +
+      "    tagline: " + q(data.team.tagline) + "\n" +
+      "  },\n" +
+      "  members: [\n" + lines.join(",\n") + "\n  ]\n};";
+  }
+  function plain(data) { return serialize(data); } // comparable fingerprint
+
+  var BAKED = normalize(window.VANGUARD);
+  var state = BAKED;
+
+  /* ---------------- Small DOM helpers ---------------- */
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  var CROWN_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7.5l4.6 4.1L12 4.5l4.4 7.1L21 7.5l-1.9 10.3H4.9L3 7.5zm2.2 11.8h13.6V21H5.2v-1.7z"/></svg>';
+
+  /* ---------------- 3D skin engine ----------------
+     ONE WebGL context for the whole page. A single hidden skinview3d viewer
+     renders each visible card in turn, and the frame is copied onto that
+     card's own plain 2D canvas. Off-screen cards are not drawn at all. */
+  var Engine = {
+    status: "loading", // loading | ready | failed
+    viewer: null,
+    TexCtor: null,
+    nearest: null,
+    width: 0, height: 0, ratio: 1,
+    cards: [],
+    waiting: []
+  };
+
+  function loadScript(urls, i) {
+    i = i || 0;
+    return new Promise(function (resolve, reject) {
+      if (i >= urls.length) return reject(new Error("skinview3d could not be loaded"));
+      var s = document.createElement("script");
+      s.src = urls[i];
+      s.integrity = SKINVIEW_SRI;
+      s.crossOrigin = "anonymous";
+      s.async = true;
+      s.onload = function () { window.skinview3d ? resolve() : reject(new Error("no skinview3d")); };
+      s.onerror = function () { s.remove(); loadScript(urls, i + 1).then(resolve, reject); };
+      document.head.appendChild(s);
+    });
+  }
+
+  /* A plain default ("Steve-style") skin drawn in code, used whenever a real skin can't load. */
+  function makeDefaultSkin() {
+    var c = document.createElement("canvas");
+    c.width = 64; c.height = 64;
+    var g = c.getContext("2d");
+    function r(x, y, w, h, col) { g.fillStyle = col; g.fillRect(x, y, w, h); }
+    var skin = "#b5835a", skinDark = "#9c6b48", hair = "#3b2716", shirt = "#00aaaa", shirtDark = "#008c8c", pants = "#3c3ca0", pantsDark = "#2f2f86", shoe = "#5a5a5a";
+    // head
+    r(0, 0, 32, 16, skin); r(8, 0, 8, 8, hair); r(16, 0, 8, 8, skinDark); r(24, 8, 8, 8, hair);
+    r(0, 8, 8, 3, hair); r(16, 8, 8, 3, hair); r(8, 8, 8, 2, hair); r(8, 10, 1, 1, hair); r(15, 10, 1, 1, hair);
+    r(9, 12, 1, 1, "#ffffff"); r(10, 12, 1, 1, "#523d89"); r(13, 12, 1, 1, "#523d89"); r(14, 12, 1, 1, "#ffffff");
+    r(11, 13, 2, 1, skinDark); r(10, 14, 4, 1, "#6a4030"); r(10, 15, 1, 1, "#6a4030"); r(13, 15, 1, 1, "#6a4030");
+    // body
+    r(16, 16, 24, 16, shirt); r(20, 16, 8, 4, shirtDark);
+    // right arm + left arm (sleeve then skin)
+    function arm(x, y) { r(x, y, 16, 16, skin); r(x + 4, y, 4, 4, shirt); r(x, y + 4, 16, 4, shirt); r(x + 8, y, 4, 4, skinDark); }
+    arm(40, 16); arm(32, 48);
+    // legs
+    function leg(x, y) { r(x, y, 16, 16, pants); r(x + 4, y, 4, 4, pantsDark); r(x + 8, y, 4, 4, shoe); r(x, y + 13, 16, 3, shoe); }
+    leg(0, 16); leg(16, 48);
+    return c;
+  }
+  var DEFAULT_SKIN = makeDefaultSkin();
+
+  function loadImage(url, timeout) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      var t = setTimeout(function () { img.src = ""; reject(new Error("timeout")); }, timeout || 9000);
+      img.crossOrigin = "anonymous";
+      img.decoding = "async";
+      img.onload = function () {
+        clearTimeout(t);
+        if (img.naturalWidth === 64 && (img.naturalHeight === 64 || img.naturalHeight === 32)) resolve(img);
+        else reject(new Error("not a skin image"));
+      };
+      img.onerror = function () { clearTimeout(t); reject(new Error("load failed")); };
+      img.src = url;
+    });
+  }
+
+  /* Fetch a username's skin from the first service that works. */
+  var skinCache = {};
+  function fetchSkin(name) {
+    var key = name.toLowerCase();
+    if (!name) return Promise.resolve({ image: null, source: "default" });
+    if (skinCache[key]) return skinCache[key];
+    var p = (function tryAt(i) {
+      if (i >= SKIN_SOURCES.length) return Promise.resolve({ image: null, source: "default" });
+      return loadImage(SKIN_SOURCES[i].url(name)).then(function (img) {
+        return { image: img, source: SKIN_SOURCES[i].label };
+      }, function () { return tryAt(i + 1); });
+    })(0);
+    skinCache[key] = p;
+    return p;
+  }
+
+  function initEngine() {
+    return loadScript(SKINVIEW_URLS).then(function () {
+      Engine.ratio = Math.min(window.devicePixelRatio || 1, 2);
+      var viewer = new skinview3d.SkinViewer({
+        width: 240, height: 320,
+        renderPaused: true,
+        preserveDrawingBuffer: true,
+        enableControls: false,
+        pixelRatio: Engine.ratio,
+        fov: 38,
+        zoom: 0.9
+      });
+      viewer.loadSkin(DEFAULT_SKIN);
+      Engine.TexCtor = viewer.skinTexture.constructor; // three.js CanvasTexture
+      Engine.nearest = viewer.skinTexture.magFilter;
+      viewer.playerObject.cape.visible = false;
+      viewer.camera.position.y = 2;
+      viewer.camera.lookAt(0, -1, 0);
+      Engine.viewer = viewer;
+      Engine.status = "ready";
+      viewer.canvas.addEventListener("webglcontextlost", function () { Engine.status = "lost"; });
+      viewer.canvas.addEventListener("webglcontextrestored", function () {
+        Engine.status = "ready";
+        Engine.cards.forEach(function (c) { if (c.tex) c.tex.needsUpdate = true; });
+      });
+      sizeEngine();
+      Engine.waiting.forEach(function (fn) { fn(); });
+      Engine.waiting = [];
+      requestAnimationFrame(frame);
+    }).catch(function (err) {
+      console.warn("[Vanguard] 3D skins unavailable, showing flat renders:", err && err.message);
+      Engine.status = "failed";
+      Engine.cards.forEach(showFlat);
+      Engine.waiting = [];
+    });
+  }
+
+  function sizeEngine() {
+    var first = Engine.cards[0];
+    if (!first || !Engine.viewer) return;
+    var rect = first.stage.getBoundingClientRect();
+    var w = Math.max(80, Math.round(rect.width)), h = Math.max(100, Math.round(rect.height));
+    // cap the internal resolution so very large cards stay cheap to draw
+    Engine.ratio = Math.max(0.75, Math.min(window.devicePixelRatio || 1, 2, 760 / h));
+    if (w === Engine.width && h === Engine.height && Engine.viewer.pixelRatio === Engine.ratio) return;
+    Engine.width = w; Engine.height = h;
+    Engine.viewer.pixelRatio = Engine.ratio;
+    Engine.viewer.setSize(w, h);
+    var cw = Math.round(w * Engine.ratio), ch = Math.round(h * Engine.ratio);
+    Engine.cards.forEach(function (c) {
+      if (c.canvas.width !== cw || c.canvas.height !== ch) { c.canvas.width = cw; c.canvas.height = ch; c.dirty = true; }
+    });
+  }
+
+  function showFlat(c) {
+    if (c.flat) { c.flat.src = FLAT_BODY_URL(c.skinName || "MHF_Steve"); return; }
+    c.canvas.style.display = "none";
+    var img = el("img", "flat");
+    img.alt = "";
+    img.onload = function () { c.stage.classList.add("is-ready"); };
+    img.onerror = function () { c.stage.classList.add("is-ready"); img.style.visibility = "hidden"; };
+    img.src = FLAT_BODY_URL(c.skinName || "MHF_Steve");
+    c.flat = img;
+    c.stage.insertBefore(img, c.stage.querySelector(".loading"));
+  }
+
+  /* Load (or reload) one card's skin into its own texture. */
+  function applySkin(c) {
+    var name = c.skinName;
+    var token = ++c.loadToken;
+    c.stage.classList.remove("is-ready");
+    if (Engine.status === "failed") { showFlat(c); return; }
+    fetchSkin(name).then(function (res) {
+      if (token !== c.loadToken) return; // a newer username was typed meanwhile
+      function go() {
+        if (token !== c.loadToken || Engine.status === "failed") return;
+        var v = Engine.viewer, source = res.source;
+        try { v.loadSkin(res.image || DEFAULT_SKIN, { model: "auto-detect" }); }
+        catch (e) { v.loadSkin(DEFAULT_SKIN); source = "default"; }
+        var g = c.skin64.getContext("2d");
+        g.clearRect(0, 0, 64, 64);
+        g.drawImage(v.skinCanvas, 0, 0);
+        c.model = v.playerObject.skin.modelType;
+        if (c.tex) c.tex.dispose();
+        c.tex = new Engine.TexCtor(c.skin64);
+        c.tex.magFilter = Engine.nearest; c.tex.minFilter = Engine.nearest;
+        c.tex.needsUpdate = true;
+        c.source = source;
+        c.dirty = true;
+        c.stage.classList.add("is-ready");
+        if (c.onSkinStatus) c.onSkinStatus(source);
+      }
+      if (Engine.status === "loading") Engine.waiting.push(go); else go();
+    });
+  }
+
+  /* Auto-spinning cards are redrawn ~30 times a second (plenty for a slow turn); a card being
+     dragged is redrawn every frame. Each frame has a time budget: if the device is slow, the
+     remaining cards simply wait for the next frame, so scrolling and dragging stay smooth. */
+  var lastTime = 0, cursor = 0, slowFrames = 0, slowMode = false;
+  var SPIN_SPEED = 0.45; // radians per second
+  function drawCard(c) {
+    var v = Engine.viewer, po = v.playerObject;
+    if (po.skin.map !== c.tex) po.skin.map = c.tex;
+    if (po.skin.modelType !== c.model) po.skin.modelType = c.model;
+    var sway = Math.cos(c.phase * 1.6) * 0.03 * Math.PI;
+    po.skin.leftArm.rotation.z = sway + 0.02 * Math.PI;
+    po.skin.rightArm.rotation.z = -sway - 0.02 * Math.PI;
+    po.skin.head.rotation.y = Math.sin(c.phase * 0.7) * 0.08;
+    v.playerWrapper.rotation.y = c.angle;
+    v.render();
+    c.ctx.clearRect(0, 0, c.canvas.width, c.canvas.height);
+    c.ctx.drawImage(v.canvas, 0, 0, c.canvas.width, c.canvas.height);
+    c.dirty = false;
+  }
+  function frame(now) {
+    requestAnimationFrame(frame);
+    var dt = lastTime ? Math.min(0.1, (now - lastTime) / 1000) : 0.016;
+    lastTime = now;
+    if (Engine.status !== "ready") return;
+    var t0 = performance.now();
+    var cards = Engine.cards, n = cards.length;
+    // "slow" = the browser isn't keeping up (frames arriving late). GPU work doesn't show up in
+    // JavaScript timings, so frame spacing is the honest signal.
+    if (slowFrames > 20) slowMode = true; else if (slowFrames === 0) slowMode = false;
+    var slow = slowMode;
+    var interval = slow ? 66 : 33, budget = 12, maxSpin = slow ? 2 : 99, drawn = 0, spun = 0;
+    for (var k = 0; k < n; k++) {
+      var c = cards[k];
+      if (!c.dragging) {
+        if (Math.abs(c.vel) > 0.02) { c.angle += c.vel * dt; c.vel *= Math.pow(0.05, dt); }
+        else { c.vel = 0; if (!reduceMotion) c.angle += SPIN_SPEED * dt; }
+      }
+      if (!reduceMotion) c.phase += dt;
+    }
+    for (var j = 0; j < n; j++) {
+      var card = cards[(cursor + j) % n];
+      if (!card.visible || !card.tex) continue;
+      var urgent = card.dragging || card.vel !== 0 || card.dirty;
+      if (!urgent && (reduceMotion || now - (card.lastDraw || 0) < interval)) continue;
+      if (!urgent && (spun >= maxSpin || (drawn > 0 && performance.now() - t0 > budget))) continue;
+      drawCard(card);
+      card.lastDraw = now;
+      drawn++;
+      if (!urgent) spun++;
+    }
+    cursor = (cursor + 1) % Math.max(1, n);
+    if (drawn || slowFrames) {
+      var late = dt > 0.026 || performance.now() - t0 > budget;
+      slowFrames = late ? Math.min(slowFrames + 1, 60) : Math.max(slowFrames - 1, 0);
+    }
+  }
+
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var c = e.target._card;
+      if (c) { c.visible = e.isIntersecting; if (c.visible) c.dirty = true; }
+    });
+  }, { rootMargin: "120px 0px" }) : null;
+
+  var ro = "ResizeObserver" in window ? new ResizeObserver(function () { sizeEngine(); }) : null;
+  window.addEventListener("resize", sizeEngine);
+
+  /* ---------------- Cards ---------------- */
+  var cardsById = {};
+  var grid = document.getElementById("grid");
+  var openCard = null;
+
+  function setOpen(c, open) {
+    if (open && openCard && openCard !== c) openCard.el.classList.remove("is-open");
+    c.el.classList.toggle("is-open", open);
+    openCard = open ? c : (openCard === c ? null : openCard);
+  }
+
+  function createCard(m) {
+    var c = {
+      id: m._id, angle: (Math.random() - 0.5) * 1.2, vel: 0, phase: Math.random() * 6,
+      visible: !io, dragging: false, dirty: true, tex: null, model: "default",
+      loadToken: 0, skinName: null, source: null, skinTimer: null
+    };
+    var art = el("article", "card");
+    art.tabIndex = 0;
+    var head = el("div", "card-head");
+    var nameBlock = el("div", "name-block");
+    c.nameEl = el("h2", "player-name");
+    c.rankEl = el("span", "rank");
+    nameBlock.appendChild(c.nameEl); nameBlock.appendChild(c.rankEl);
+    c.badgeSlot = el("div");
+    c.badgeSlot.style.flex = "none";
+    head.appendChild(nameBlock); head.appendChild(c.badgeSlot);
+    var meter = el("div", "meter"); c.meterFill = el("i"); meter.appendChild(c.meterFill);
+
+    var stage = el("div", "stage");
+    stage.appendChild(el("div", "floor"));
+    var canvas = el("canvas");
+    canvas.setAttribute("role", "img");
+    stage.appendChild(canvas);
+    stage.appendChild(el("div", "loading"));
+    c.bioEl = el("div", "bio"); c.bioText = el("p"); c.bioEl.appendChild(c.bioText);
+    stage.appendChild(c.bioEl);
+    var tap = el("span", "tap-hint", "i"); tap.setAttribute("aria-hidden", "true");
+    stage.appendChild(tap);
+
+    c.titleEl = el("p", "card-title");
+    art.appendChild(head); art.appendChild(meter); art.appendChild(stage); art.appendChild(c.titleEl);
+
+    c.el = art; c.stage = stage; c.canvas = canvas; c.ctx = canvas.getContext("2d");
+    c.skin64 = document.createElement("canvas"); c.skin64.width = 64; c.skin64.height = 64;
+    stage._card = c;
+
+    /* Drag to spin (mouse, touch, pen). A short tap toggles the bio. */
+    var startX = 0, startY = 0, lastX = 0, lastT = 0, pid = null, moved = false;
+    stage.addEventListener("pointerdown", function (e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      pid = e.pointerId; startX = lastX = e.clientX; startY = e.clientY; lastT = performance.now(); moved = false;
+      c.vel = 0;
+      try { stage.setPointerCapture(pid); } catch (err) {}
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (e.pointerId !== pid) return;
+      var dx = e.clientX - lastX;
+      if (!moved && Math.abs(e.clientX - startX) > 5) { moved = true; c.dragging = true; stage.classList.add("is-dragging"); }
+      if (moved) {
+        var now = performance.now(), dtm = Math.max(1, now - lastT);
+        c.angle += dx * 0.012;
+        c.vel = c.vel * 0.6 + (dx * 0.012) / (dtm / 1000) * 0.4;
+        lastT = now;
+      }
+      lastX = e.clientX;
+    });
+    function end(e, cancelled) {
+      if (e.pointerId !== pid) return;
+      pid = null;
+      if (!moved && !cancelled && Math.abs(e.clientY - startY) < 8 && e.pointerType !== "mouse") {
+        setOpen(c, !c.el.classList.contains("is-open"));
+      }
+      if (performance.now() - lastT > 80) c.vel = 0;
+      c.vel = Math.max(-8, Math.min(8, c.vel));
+      c.dragging = false; stage.classList.remove("is-dragging");
+    }
+    stage.addEventListener("pointerup", function (e) { end(e, false); });
+    stage.addEventListener("pointercancel", function (e) { end(e, true); c.vel = 0; });
+    art.addEventListener("keydown", function (e) {
+      if (e.target !== art) return;
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(c, !art.classList.contains("is-open")); }
+      if (e.key === "ArrowLeft") { c.vel = -3; }
+      if (e.key === "ArrowRight") { c.vel = 3; }
+    });
+    art.addEventListener("click", function () { if (EDIT_MODE && Editor.focusMember) Editor.focusMember(c.id); });
+
+    Engine.cards.push(c);
+    if (io) io.observe(stage);
+    if (ro && Engine.cards.length === 1) ro.observe(stage);
+    return c;
+  }
+
+  function updateCard(c, m, immediate) {
+    var owner = m.owner;
+    var hasRating = !owner && m.rating !== null && ratingValid(m.rating);
+    c.el.classList.toggle("is-owner", owner);
+    c.nameEl.textContent = m.name || "Unnamed";
+    c.nameEl.title = m.name;
+    c.rankEl.innerHTML = "";
+    if (owner) {
+      var ob = el("span", "owner-badge"); ob.innerHTML = CROWN_SVG; ob.appendChild(document.createTextNode("Owner"));
+      c.rankEl.appendChild(ob);
+    } else {
+      c.rankEl.textContent = "Member";
+    }
+    c.badgeSlot.innerHTML = "";
+    if (owner) {
+      var crown = el("div", "crown-mark"); crown.innerHTML = CROWN_SVG; crown.title = "Team owner";
+      c.badgeSlot.appendChild(crown);
+    } else {
+      var q = el("div", "quips" + (hasRating ? "" : " is-none"));
+      q.appendChild(el("span", "quips-value", hasRating ? fmtRating(m.rating) : "—"));
+      q.appendChild(el("span", "quips-label", "Quips"));
+      if (hasRating) q.dataset.tier = m.rating >= 1.5 ? "high" : (m.rating < 1.0 ? "low" : "mid");
+      q.title = hasRating ? "Quips rating " + fmtRating(m.rating) + " (0.1 – 2.0)" : "No Quips rating";
+      c.badgeSlot.appendChild(q);
+    }
+    c.meterFill.style.setProperty("--pct", hasRating ? Math.round(((m.rating - 0.1) / 1.9) * 100) + "%" : "0%");
+
+    var title = m.title.trim();
+    c.titleEl.textContent = title || state.team.name;
+    c.titleEl.classList.toggle("is-placeholder", !title);
+    var bio = m.bio.trim();
+    c.bioText.textContent = bio || "Lets their sword do the talking.";
+    c.bioEl.classList.toggle("is-placeholder", !bio);
+    c.canvas.setAttribute("aria-label", "3D model of " + (m.name || "a player") + "'s Minecraft skin");
+    c.el.setAttribute("aria-label", (m.name || "Unnamed") + (owner ? ", owner" : hasRating ? ", Quips " + fmtRating(m.rating) : "") + (title ? ", " + title : ""));
+
+    var skin = skinNameOf(m);
+    if (skin !== c.skinName) {
+      c.skinName = skin;
+      clearTimeout(c.skinTimer);
+      if (immediate) applySkin(c);
+      else c.skinTimer = setTimeout(function () { applySkin(c); }, 650); // wait until you stop typing
+    }
+  }
+
+  function render(immediate) {
+    document.getElementById("team-name").textContent = state.team.name;
+    document.getElementById("footer-name").textContent = state.team.name.toUpperCase();
+    var tag = document.getElementById("team-tagline");
+    tag.textContent = state.team.tagline; tag.hidden = !state.team.tagline;
+    var n = state.members.length;
+    document.getElementById("member-count").textContent = "The Roster · " + n + (n === 1 ? " member" : " members");
+    document.title = state.team.name + " · Legions";
+
+    var sorted = sortMembers(state.members);
+    var alive = {};
+    // FLIP: remember where cards were so reordering animates smoothly
+    var before = {};
+    Object.keys(cardsById).forEach(function (id) { before[id] = cardsById[id].el.getBoundingClientRect(); });
+
+    sorted.forEach(function (m, i) {
+      var c = cardsById[m._id];
+      var isNew = !c;
+      if (isNew) c = cardsById[m._id] = createCard(m);
+      alive[m._id] = true;
+      updateCard(c, m, immediate || isNew);
+      if (grid.children[i] !== c.el) grid.insertBefore(c.el, grid.children[i] || null);
+    });
+    Object.keys(cardsById).forEach(function (id) {
+      if (!alive[id]) {
+        var c = cardsById[id];
+        if (io) io.unobserve(c.stage);
+        if (ro) ro.unobserve(c.stage);
+        if (c.tex) c.tex.dispose();
+        c.el.remove();
+        Engine.cards.splice(Engine.cards.indexOf(c), 1);
+        delete cardsById[id];
+        if (openCard === c) openCard = null;
+      }
+    });
+    // keep the draw order matching the page order
+    Engine.cards.sort(function (a, b) { return sorted.findIndex(function (m) { return m._id === a.id; }) - sorted.findIndex(function (m) { return m._id === b.id; }); });
+    if (ro && Engine.cards[0]) { ro.disconnect(); ro.observe(Engine.cards[0].stage); }
+    sizeEngine();
+
+    if (!reduceMotion) {
+      Object.keys(before).forEach(function (id) {
+        var c = cardsById[id]; if (!c) return;
+        var a = before[id], b = c.el.getBoundingClientRect();
+        var dx = a.left - b.left, dy = a.top - b.top;
+        if (!dx && !dy) return;
+        c.el.style.transition = "none";
+        c.el.style.transform = "translate(" + dx + "px," + dy + "px)";
+        requestAnimationFrame(function () {
+          c.el.style.transition = "transform .35s ease, box-shadow .25s ease, border-color .25s ease";
+          c.el.style.transform = "";
+          setTimeout(function () { c.el.style.transition = ""; }, 400);
+        });
+      });
+    }
+  }
+
+  // tap outside an open card closes its bio
+  document.addEventListener("pointerdown", function (e) {
+    if (openCard && !openCard.el.contains(e.target)) setOpen(openCard, false);
+  });
+
+  /* ---------------- Edit mode ---------------- */
+  var Editor = { focusMember: null };
+
+  function initEditor() {
+    document.body.classList.add("editing", "editor-open");
+    var draft = null;
+    try { draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null"); } catch (e) { draft = null; }
+    var notice = "";
+    if (draft && draft.data) {
+      var restored = normalize(draft.data);
+      if (plain(restored) === plain(BAKED)) {
+        try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+      } else {
+        state = restored;
+        var when = new Date(draft.savedAt || Date.now());
+        notice = "Restored your unsaved edits from " + when.toLocaleString() + ".";
+        if (draft.base && draft.base !== hash(plain(BAKED))) notice += " Heads up: the published site has changed since these edits were made.";
+      }
+    }
+
+    var flag = el("div", "edit-flag", "Edit mode");
+    document.body.appendChild(flag);
+
+    var panel = el("aside", "editor");
+    panel.setAttribute("aria-label", "Site editor");
+    panel.innerHTML =
+      '<div class="editor-head">' +
+        '<h2><span>Edit roster</span><button type="button" class="btn btn-small" data-act="close">Hide</button></h2>' +
+        '<p class="editor-status" data-ref="status">Changes preview instantly. Nothing is public until you upload.</p>' +
+        '<div class="editor-actions">' +
+          '<button type="button" class="btn btn-primary" data-act="download">⬇ Download updated site</button>' +
+          '<button type="button" class="btn" data-act="add">+ Add member</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="editor-body">' +
+        '<div class="editor-notice" data-ref="notice" hidden><span data-ref="notice-text"></span><br>' +
+          '<button type="button" class="btn btn-small btn-danger" data-act="discard">Discard my edits</button></div>' +
+        '<h3 class="editor-section-title">Team</h3>' +
+        '<div class="fields" style="padding:0">' +
+          '<div class="field"><label for="ed-team-name">Team name</label><input type="text" id="ed-team-name" maxlength="40"></div>' +
+          '<div class="field"><label for="ed-team-tag">Tagline</label><input type="text" id="ed-team-tag" maxlength="80"></div>' +
+        '</div>' +
+        '<h3 class="editor-section-title">Members <span style="color:var(--text-dim);letter-spacing:0;text-transform:none;font-family:var(--font-body);font-weight:500">— click a card to jump to it</span></h3>' +
+        '<div data-ref="list"></div>' +
+        '<button type="button" class="btn btn-wide" data-act="add">+ Add member</button>' +
+      '</div>';
+    document.body.appendChild(panel);
+    var fab = el("button", "btn btn-primary editor-fab", "✎ Editor");
+    fab.type = "button"; fab.hidden = true;
+    document.body.appendChild(fab);
+
+    var $ = function (ref) { return panel.querySelector('[data-ref="' + ref + '"]'); };
+    var list = $("list"), statusEl = $("status");
+    var rows = {};
+
+    if (notice) { $("notice").hidden = false; $("notice-text").textContent = notice; }
+
+    function setPanel(open) {
+      panel.classList.toggle("is-collapsed", !open);
+      document.body.classList.toggle("editor-open", open);
+      fab.hidden = open;
+      setTimeout(sizeEngine, 300);
+    }
+    fab.addEventListener("click", function () { setPanel(true); });
+
+    var saveTimer = null;
+    function changed() {
+      render(false);
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveDraft, 250);
+    }
+    function saveDraft() {
+      try {
+        if (plain(state) === plain(BAKED)) { localStorage.removeItem(DRAFT_KEY); statusEl.textContent = "No unsaved changes."; return; }
+        localStorage.setItem(DRAFT_KEY, JSON.stringify({ savedAt: Date.now(), base: hash(plain(BAKED)), data: stripIds(state) }));
+        statusEl.textContent = "Draft saved in this browser · " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + ". Download & upload to publish.";
+      } catch (e) {
+        statusEl.textContent = "Couldn't save a draft in this browser (private mode?). Download before closing.";
+      }
+    }
+
+    var teamName = panel.querySelector("#ed-team-name"), teamTag = panel.querySelector("#ed-team-tag");
+    function fillTeam() { teamName.value = state.team.name; teamTag.value = state.team.tagline; }
+    fillTeam();
+    teamName.addEventListener("input", function () { state.team.name = teamName.value.trim() || "Vanguard"; changed(); });
+    teamTag.addEventListener("input", function () { state.team.tagline = teamTag.value; changed(); });
+
+    function field(labelText, input, help) {
+      var f = el("div", "field");
+      var id = "ed-" + Math.random().toString(36).slice(2, 9);
+      var l = el("label", null, labelText); l.htmlFor = id; input.id = id;
+      f.appendChild(l); f.appendChild(input);
+      if (help !== undefined) { f.helpEl = el("div", "help", help); f.appendChild(f.helpEl); }
+      return f;
+    }
+    function textInput(value, max) { var i = el("input"); i.type = "text"; i.value = value; i.maxLength = max || 60; i.autocomplete = "off"; i.spellcheck = false; return i; }
+
+    function buildRow(m, open) {
+      var d = el("details", "member-row");
+      if (open) d.open = true;
+      var sum = el("summary");
+      var sName = el("span", "sum-name"), sMeta = el("span", "sum-meta"), sWarn = el("span", "sum-warn");
+      sum.appendChild(sName); sum.appendChild(sWarn); sum.appendChild(sMeta);
+      d.appendChild(sum);
+      var box = el("div", "fields");
+
+      var name = textInput(m.name, 32);
+      var skin = textInput(m.skin, 16); skin.placeholder = "Same as name";
+      var title = textInput(m.title, 40); title.placeholder = 'e.g. "The Lion"';
+      var rating = el("input"); rating.type = "number"; rating.step = "0.1"; rating.min = "0.1"; rating.max = "2.0"; rating.inputMode = "decimal";
+      rating.value = m.rating === null ? "" : String(m.rating); rating.placeholder = "none";
+      var bio = el("textarea"); bio.value = m.bio; bio.maxLength = 220; bio.rows = 3; bio.placeholder = "A short bio or quote (shown on hover / tap)";
+      var ownerBox = el("label", "check"); var owner = el("input"); owner.type = "checkbox"; owner.checked = m.owner;
+      ownerBox.appendChild(owner); ownerBox.appendChild(document.createTextNode("Owner (crown badge, always first, no rating)"));
+
+      var fName = field("Name on card", name);
+      var fSkin = field("Minecraft username (skin)", skin, "");
+      var fTitle = field("Title", title);
+      var fRating = field("Quips rating", rating, "0.1 – 2.0, blank = none");
+      var fBio = field("Bio / quote", bio);
+      var pair = el("div", "field-row"); pair.appendChild(fTitle); pair.appendChild(fRating);
+      box.appendChild(fName); box.appendChild(fSkin); box.appendChild(pair); box.appendChild(fBio); box.appendChild(ownerBox);
+
+      var foot = el("div", "row-foot");
+      var skinStatus = el("span", "skin-status", "");
+      var del = el("button", "btn btn-small btn-danger", "Remove member"); del.type = "button";
+      foot.appendChild(skinStatus); foot.appendChild(del);
+      box.appendChild(foot);
+      d.appendChild(box);
+
+      function refreshSummary() {
+        sName.textContent = m.name || "(no name)";
+        sMeta.textContent = m.owner ? "♛" : (m.rating === null ? "—" : fmtRating(m.rating));
+        sWarn.textContent = (rowErrors(m).length ? "⚠" : "");
+        fRating.hidden = false;
+        rating.disabled = m.owner;
+        fRating.classList.toggle("is-invalid", !m.owner && !ratingValid(m.rating));
+        fRating.helpEl.textContent = m.owner ? "Owners have no rating" : (!ratingValid(m.rating) ? "Must be between 0.1 and 2.0 (or blank)" : "0.1 – 2.0, blank = none");
+        var sn = skinNameOf(m);
+        var nameOk = /^[A-Za-z0-9_]{3,16}$/.test(sn);
+        fSkin.classList.toggle("is-invalid", !nameOk);
+        fSkin.helpEl.textContent = nameOk ? "Skin updates automatically when they change it in-game." : "Minecraft usernames are 3–16 letters, numbers or _";
+      }
+      refreshSummary();
+
+      name.addEventListener("input", function () { m.name = name.value; refreshSummary(); changed(); });
+      skin.addEventListener("input", function () { m.skin = skin.value.trim(); skinStatus.textContent = "Loading skin…"; skinStatus.classList.remove("is-bad"); refreshSummary(); changed(); });
+      title.addEventListener("input", function () { m.title = title.value; changed(); });
+      rating.addEventListener("input", function () {
+        var raw = rating.value.trim().replace(",", ".");
+        m.rating = raw === "" ? null : Number(raw);
+        if (raw !== "" && isNaN(m.rating)) m.rating = NaN;
+        refreshSummary(); changed();
+      });
+      bio.addEventListener("input", function () { m.bio = bio.value; changed(); });
+      owner.addEventListener("change", function () { m.owner = owner.checked; refreshSummary(); changed(); });
+      del.addEventListener("click", function () {
+        if (!confirm("Remove " + (m.name || "this member") + " from the roster?")) return;
+        state.members.splice(state.members.indexOf(m), 1);
+        d.remove(); delete rows[m._id];
+        changed();
+      });
+      d.addEventListener("toggle", function () {
+        Engine.cards.forEach(function (c) { c.el.classList.toggle("is-selected", d.open && c.id === m._id); });
+      });
+
+      rows[m._id] = { el: d, name: name, statusEl: skinStatus };
+      return d;
+    }
+
+    function hookSkinStatus(m) {
+      var c = cardsById[m._id], r = rows[m._id];
+      if (!c || !r) return;
+      var show = function (src) {
+        r.statusEl.textContent = src === "default" ? "Skin not found — showing default skin" : "Skin loaded from " + src;
+        r.statusEl.classList.toggle("is-bad", src === "default");
+      };
+      c.onSkinStatus = show;
+      if (c.source) show(c.source);
+    }
+
+    function buildList() {
+      list.innerHTML = ""; rows = {};
+      sortMembers(state.members).forEach(function (m) { list.appendChild(buildRow(m, false)); });
+      state.members.forEach(hookSkinStatus);
+    }
+
+    Editor.focusMember = function (id) {
+      var r = rows[id]; if (!r) return;
+      setPanel(true);
+      Object.keys(rows).forEach(function (k) { if (rows[k] !== r) rows[k].el.open = false; });
+      r.el.open = true;
+      r.el.scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+    };
+
+    function addMember() {
+      var m = normalizeMember({ name: "NewMember", skin: "", title: "", rating: 1.0, bio: "" });
+      state.members.push(m);
+      changed();
+      var row = buildRow(m, true);
+      list.appendChild(row);
+      hookSkinStatus(m);
+      Editor.focusMember(m._id);
+      rows[m._id].name.focus(); rows[m._id].name.select();
+    }
+
+    panel.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-act]"); if (!b) return;
+      var act = b.getAttribute("data-act");
+      if (act === "close") setPanel(false);
+      if (act === "add") addMember();
+      if (act === "download") downloadSite();
+      if (act === "discard") {
+        if (!confirm("Throw away your unsaved edits and go back to the published version?")) return;
+        try { localStorage.removeItem(DRAFT_KEY); } catch (err) {}
+        state = normalize(stripIds(BAKED));
+        $("notice").hidden = true;
+        fillTeam(); render(true); buildList();
+        statusEl.textContent = "Back to the published version.";
+      }
+    });
+
+    function downloadSite() {
+      var problems = [];
+      state.members.forEach(function (m) { rowErrors(m).forEach(function (p) { problems.push((m.name || "(no name)") + ": " + p); }); });
+      if (problems.length) { alert("Please fix these first:\n\n" + problems.join("\n")); return; }
+      getSource().then(function (src) {
+        var a = src.indexOf(MARK_START), b = src.indexOf(MARK_END);
+        if (a < 0 || b < a) throw new Error("data markers not found");
+        var lineEnd = src.indexOf("\n", a);
+        var out = src.slice(0, lineEnd + 1) + serialize(state) + "\n" + src.slice(b);
+        var blob = new Blob([out], { type: "text/html;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var link = el("a"); link.href = url; link.download = "index.html";
+        document.body.appendChild(link); link.click(); link.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+        toast("Saved <b>index.html</b>. Now upload it to your GitHub repository (Add file → Upload files → Commit changes). The site updates in about a minute.", 9000);
+      }).catch(function (err) {
+        alert("Sorry, the download failed: " + err.message);
+      });
+    }
+
+    render(true);
+    buildList();
+    if (!notice) saveDraft();
+  }
+
+  function rowErrors(m) {
+    var out = [];
+    if (!m.name.trim()) out.push("name is empty");
+    if (!m.owner && !ratingValid(m.rating)) out.push("rating must be 0.1 – 2.0 or blank");
+    return out;
+  }
+  function stripIds(data) {
+    return { team: { name: data.team.name, tagline: data.team.tagline }, members: data.members.map(function (m) { return { name: m.name, skin: m.skin, title: m.title, rating: m.rating, owner: m.owner, bio: m.bio }; }) };
+  }
+  function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return String(h >>> 0); }
+
+  /* The page's own file: fetched fresh from GitHub Pages, or the startup snapshot as a fallback. */
+  function getSource() {
+    var valid = function (s) { return s && s.indexOf(MARK_START) >= 0 && s.indexOf(MARK_END) >= 0; };
+    if (location.protocol === "file:") return Promise.resolve(PAGE_SNAPSHOT);
+    return fetch(location.href.split(/[?#]/)[0], { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.text() : ""; })
+      .then(function (s) { return valid(s) ? s : PAGE_SNAPSHOT; }, function () { return PAGE_SNAPSHOT; });
+  }
+
+  var toastEl = null, toastTimer = null;
+  function toast(html, ms) {
+    if (!toastEl) { toastEl = el("div", "toast"); toastEl.setAttribute("role", "status"); document.body.appendChild(toastEl); }
+    toastEl.innerHTML = html;
+    toastEl.classList.add("is-on");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.remove("is-on"); }, ms || 5000);
+  }
+
+  /* ---------------- Start ---------------- */
+  if (EDIT_MODE) {
+    state = normalize(stripIds(BAKED)); // editable copy
+    initEditor();
+  } else {
+    render(true);
+  }
+  initEngine();
+})();
+</script>
+</body>
+</html>
