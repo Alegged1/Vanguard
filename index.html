@@ -7,19 +7,26 @@
   ║                     VANGUARD — TEAM DATA                           ║
   ╠════════════════════════════════════════════════════════════════════╣
   ║  EASIEST WAY TO EDIT: open your site with  ?edit  at the end of    ║
-  ║  the address, e.g.  https://YOURNAME.github.io/Vanguard/?edit      ║
+  ║  the address (or ?edit=YOURWORD if you set a secret edit word),    ║
+  ║  e.g.  https://alegged1.github.io/Vanguard/?edit                   ║
   ║  Make your changes, press "Download updated site", then upload     ║
   ║  the downloaded index.html to GitHub. (See README.md.)             ║
   ║                                                                    ║
-  ║  OR edit the list below by hand. One line per member:              ║
-  ║    name   = name shown on the card                                 ║
-  ║    skin   = Minecraft username the skin is loaded from             ║
-  ║    title  = text at the bottom of the card, e.g. "The Lion"        ║
-  ║    rating = Quips rating 0.1 – 2.0  (use null for no rating)       ║
-  ║    owner  = true  → crown badge, always shown first                ║
-  ║    bio    = short bio or quote shown on hover / tap                ║
+  ║  OR edit the data below by hand. Each member has:                  ║
+  ║    name        = name shown on the card                            ║
+  ║    skin        = Minecraft username the skin is loaded from        ║
+  ║    role        = "owner", "manager" or "member"                    ║
+  ║    rating      = Quips rating 0.1 – 2.0  (null for no rating)      ║
+  ║    title       = text at the bottom of the card, e.g. "The Lion"   ║
+  ║    bio         = short quote shown on the card (hover / tap)       ║
+  ║    about       = longer "About" text on their profile page         ║
+  ║    joined      = when they joined, e.g. "March 2025"               ║
+  ║    playstyle   = e.g. "Sword main"                                 ║
+  ║    achievements= list of wins/moments: ["Won X", "Top 3 in Y"]     ║
+  ║    links       = list of links: ["https://youtube.com/@name"]      ║
+  ║    skinFile    = (optional) an uploaded skin — use the editor      ║
   ║  Keep the quotes "" and the commas exactly as they are.            ║
-  ║  Order doesn't matter: cards are sorted by rating automatically.   ║
+  ║  Order doesn't matter: cards are sorted automatically.             ║
   ╚════════════════════════════════════════════════════════════════════╝
 -->
 <script>
@@ -27,29 +34,124 @@
 window.VANGUARD = {
   team: {
     name: "Vanguard",
-    tagline: "A Legions PvP team"
+    tagline: "A Legions League team",
+    message: "",
+    messageBy: "",
+    discord: "",
+    editKey: ""
   },
   members: [
-    { name: "Alegged", skin: "Alegged", title: "", rating: null, owner: true, bio: "" },
-    { name: "Pillarger", skin: "Pillarger", title: "", rating: 1.8, bio: "" },
-    { name: "EMPolse", skin: "EMPolse", title: "", rating: 1.7, bio: "" },
-    { name: "qPengu", skin: "qPengu", title: "", rating: 1.6, bio: "" },
-    { name: "Ifny", skin: "Ifny", title: "", rating: 1.4, bio: "" },
-    { name: "Nightmare2g", skin: "Nightmare2g", title: "", rating: 1.3, bio: "" },
-    { name: "shuri11", skin: "shuri11", title: "", rating: 1.3, bio: "" },
-    { name: "WhatVenom", skin: "WhatVenom", title: "", rating: 1.2, bio: "" },
-    { name: "SonnyD__", skin: "SonnyD__", title: "", rating: 1.2, bio: "" },
-    { name: "Quickzol", skin: "Quickzol", title: "", rating: 1.0, bio: "" },
-    { name: "DGSgmes", skin: "DGSgmes", title: "", rating: 0.9, bio: "" },
-    { name: "ChickenKing62", skin: "ChickenKing62", title: "", rating: 0.7, bio: "" },
-    { name: "XSwordd", skin: "XSwordd", title: "", rating: 0.7, bio: "" }
+    {
+      name: "Alegged", skin: "Alegged", role: "owner", rating: null,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "Pillarger", skin: "Pillarger", role: "member", rating: 1.8,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "EMPolse", skin: "EMPolse", role: "member", rating: 1.7,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "qPengu", skin: "qPengu", role: "member", rating: 1.6,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "Ifny", skin: "Ifny", role: "member", rating: 1.4,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "Nightmare2g", skin: "Nightmare2g", role: "member", rating: 1.3,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "shuri11", skin: "shuri11", role: "member", rating: 1.3,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "SonnyD__", skin: "SonnyD__", role: "member", rating: 1.2,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "WhatVenom", skin: "WhatVenom", role: "member", rating: 1.2,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "Quickzol", skin: "Quickzol", role: "member", rating: 1.0,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "DGSgmes", skin: "DGSgmes", role: "member", rating: 0.9,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "ChickenKing62", skin: "ChickenKing62", role: "member", rating: 0.7,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    },
+    {
+      name: "XSwordd", skin: "zimaju", role: "member", rating: 0.7,
+      title: "", bio: "",
+      about: "",
+      joined: "", playstyle: "",
+      achievements: [],
+      links: []
+    }
   ]
 };
 /* ===== VANGUARD DATA END ===== */
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vanguard · Legions</title>
-<meta name="description" content="Vanguard — a team in the Legions Minecraft PvP community. Meet the roster.">
+<meta name="description" content="Vanguard — a team in the Legions Minecraft league. Meet the roster.">
 <meta name="theme-color" content="#0b1438">
 <meta property="og:title" content="Vanguard · Legions">
 <meta property="og:description" content="Meet the Vanguard roster.">
@@ -84,12 +186,14 @@ window.VANGUARD = {
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --radius: 6px;
   --gutter: 16px;
+  --nav-h: 56px;
   --editor-w: 0px;
   color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: var(--nav-h); }
+html.view-players { scroll-snap-type: y proximity; }
 body {
   margin: 0;
   min-height: 100vh;
@@ -116,12 +220,69 @@ body::before { /* faint diamond lattice, like a heraldic field */
   mask-image: linear-gradient(180deg, #000 0%, transparent 75%);
   -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 75%);
 }
+a { color: var(--ice); }
 .page { position: relative; padding-right: var(--editor-w); transition: padding-right .25s ease; }
+[hidden] { display: none !important; }
+
+/* ---------- Top bar with tabs ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 40;
+  height: var(--nav-h);
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 var(--gutter);
+  background: rgba(8, 14, 40, 0.82);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex; align-items: center; gap: 9px;
+  color: var(--paper); text-decoration: none;
+  font-family: var(--font-display); font-weight: 700; letter-spacing: .16em; font-size: .95rem;
+  min-width: 0;
+}
+.brand img { width: 32px; height: 30px; object-fit: contain; flex: none; }
+.tabs { display: flex; gap: 4px; margin: 0 auto; }
+.tab {
+  position: relative;
+  padding: 8px 16px;
+  font-family: var(--font-display); font-weight: 700; font-size: .82rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-dim); text-decoration: none;
+  border-radius: 4px;
+}
+.tab:hover { color: var(--paper); }
+.tab[aria-current="page"] { color: var(--paper); }
+.tab[aria-current="page"]::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: 2px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ice), transparent);
+}
+.tab:focus-visible, .brand:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+.nav-right { display: flex; align-items: center; gap: 8px; flex: none; }
+@media (max-width: 640px) {
+  .brand span { display: none; }
+  .tabs { margin: 0 auto 0 4px; }
+  .tab { padding: 8px 10px; font-size: .74rem; letter-spacing: .12em; }
+  .tab[aria-current="page"]::after { left: 8px; right: 8px; }
+  .discord-btn .label-long { display: none; }
+}
+
+.discord-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 36px; padding: 7px 14px;
+  font: 700 .8rem/1 var(--font-body); letter-spacing: .04em;
+  color: var(--navy-900); text-decoration: none;
+  background: linear-gradient(180deg, #c9ebfb, var(--ice-deep));
+  border-radius: 4px;
+  box-shadow: 0 0 16px rgba(124, 196, 234, 0.25);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.discord-btn:hover { box-shadow: 0 0 24px rgba(124, 196, 234, 0.5); transform: translateY(-1px); }
+.discord-btn svg { width: 17px; height: 17px; flex: none; }
+.discord-btn.big { min-height: 44px; padding: 10px 20px; font-size: .9rem; margin-top: 20px; }
 
 /* ---------- Header ---------- */
 .hero {
   text-align: center;
-  padding: clamp(28px, 6vw, 64px) var(--gutter) 12px;
+  padding: clamp(24px, 5vw, 56px) var(--gutter) 12px;
 }
 .crest-wrap { position: relative; display: inline-block; }
 .crest-wrap::before {
@@ -144,11 +305,10 @@ body::before { /* faint diamond lattice, like a heraldic field */
   font-size: clamp(2.4rem, 8vw, 4.4rem);
   letter-spacing: 0.18em;
   line-height: 1.05;
-  padding-left: 0.18em; /* balance trailing letter-spacing */
+  padding-left: 0.18em;
   background: linear-gradient(180deg, #ffffff 0%, var(--paper) 35%, var(--silver) 65%, var(--steel) 100%);
   -webkit-background-clip: text; background-clip: text;
   color: transparent;
-  text-shadow: 0 2px 0 rgba(0,0,0,0.0);
   filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.55));
 }
 .tagline {
@@ -160,10 +320,26 @@ body::before { /* faint diamond lattice, like a heraldic field */
   font-size: clamp(0.72rem, 2.4vw, 0.9rem);
   color: var(--ice);
 }
+.welcome {
+  position: relative;
+  max-width: 640px; margin: 28px auto 0;
+  padding: 22px 26px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(19, 35, 90, 0.55), rgba(11, 20, 56, 0.6));
+  text-align: center;
+}
+.welcome::before {
+  content: ""; position: absolute; left: 20%; right: 20%; top: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ice), transparent);
+}
+.welcome p { margin: 0; font-size: 1.02rem; line-height: 1.65; color: var(--text); white-space: pre-line; }
+.welcome .by { margin-top: 12px; font-family: var(--font-display); font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ice); }
+.welcome .by::before { content: "— "; }
+.welcome.is-placeholder p { color: var(--steel); font-style: italic; }
 .divider {
   display: flex; align-items: center; justify-content: center; gap: 14px;
-  margin: 26px auto 0; max-width: 520px;
-  color: var(--silver);
+  margin: 30px auto 0; max-width: 520px;
 }
 .divider::before, .divider::after {
   content: ""; flex: 1; height: 1px;
@@ -200,6 +376,7 @@ body::before { /* faint diamond lattice, like a heraldic field */
   padding: 12px;
   transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
   outline: none;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 .card:hover, .card:focus-visible, .card.is-open {
@@ -209,16 +386,18 @@ body::before { /* faint diamond lattice, like a heraldic field */
 @media (hover: hover) and (pointer: fine) {
   .card:hover { transform: translateY(-3px); }
 }
-.card.is-owner {
+.card.is-owner, .card.is-manager {
   border-color: rgba(195, 199, 207, 0.5);
   background:
     linear-gradient(180deg, rgba(169, 220, 245, 0.10), transparent 40%),
     linear-gradient(180deg, rgba(19, 35, 90, 0.8), rgba(11, 20, 56, 0.9));
 }
-.card.is-owner::before { /* thin ice line across the top */
+.card.is-manager { background: linear-gradient(180deg, rgba(185, 179, 214, 0.10), transparent 40%), linear-gradient(180deg, rgba(19, 35, 90, 0.8), rgba(11, 20, 56, 0.9)); }
+.card.is-owner::before, .card.is-manager::before {
   content: ""; position: absolute; left: 12px; right: 12px; top: -1px; height: 2px;
   background: linear-gradient(90deg, transparent, var(--ice), transparent);
 }
+.card.is-manager::before { background: linear-gradient(90deg, transparent, var(--lavender), transparent); }
 
 .card-head {
   display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
@@ -240,17 +419,11 @@ body::before { /* faint diamond lattice, like a heraldic field */
   color: var(--text-dim);
   margin-top: 1px;
 }
-.owner-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  color: var(--ice);
-}
-.owner-badge svg { width: 14px; height: 14px; flex: none; }
+.role-badge { display: inline-flex; align-items: center; gap: 5px; color: var(--ice); }
+.role-badge.manager { color: var(--lavender); }
+.role-badge svg { width: 14px; height: 14px; flex: none; }
 
-.quips {
-  flex: none;
-  text-align: right;
-  line-height: 1;
-}
+.quips { flex: none; text-align: right; line-height: 1; }
 .quips-value {
   display: block;
   font-family: var(--font-display);
@@ -268,7 +441,7 @@ body::before { /* faint diamond lattice, like a heraldic field */
 .quips[data-tier="high"] .quips-value { color: #d9f2ff; text-shadow: 0 0 16px rgba(169, 220, 245, 0.8); }
 .quips[data-tier="low"] .quips-value { color: var(--silver); text-shadow: none; }
 .quips.is-none .quips-value { color: var(--steel); text-shadow: none; }
-.crown-mark {
+.role-mark {
   flex: none;
   width: 38px; height: 38px;
   display: grid; place-items: center;
@@ -278,9 +451,10 @@ body::before { /* faint diamond lattice, like a heraldic field */
   background: radial-gradient(circle, rgba(169, 220, 245, 0.18), transparent 70%);
   box-shadow: 0 0 14px rgba(124, 196, 234, 0.35);
 }
-.crown-mark svg { width: 20px; height: 20px; }
+.role-mark.manager { color: var(--lavender); border-color: rgba(185, 179, 214, 0.6); background: radial-gradient(circle, rgba(185, 179, 214, 0.18), transparent 70%); box-shadow: 0 0 14px rgba(185, 179, 214, 0.3); }
+.role-mark svg { width: 20px; height: 20px; }
 
-.meter { /* rating bar under the header: 0.1 – 2.0 */
+.meter {
   height: 2px; margin: 8px 0 10px;
   background: rgba(195, 199, 207, 0.15);
   border-radius: 2px; overflow: hidden;
@@ -291,7 +465,7 @@ body::before { /* faint diamond lattice, like a heraldic field */
   box-shadow: 0 0 8px var(--ice-deep);
   transition: width .4s ease;
 }
-.card.is-owner .meter i { width: 100%; background: linear-gradient(90deg, var(--lavender), var(--silver), var(--ice)); box-shadow: none; }
+.meter.full i { width: 100%; background: linear-gradient(90deg, var(--lavender), var(--silver), var(--ice)); box-shadow: none; }
 
 /* The framed skin stage */
 .stage {
@@ -308,7 +482,7 @@ body::before { /* faint diamond lattice, like a heraldic field */
   user-select: none; -webkit-user-select: none;
 }
 .stage.is-dragging { cursor: grabbing; }
-.stage::before, .stage::after { /* corner brackets */
+.stage::before, .stage::after {
   content: ""; position: absolute; width: 14px; height: 14px; pointer-events: none; z-index: 2;
   border: 1px solid var(--silver);
   opacity: .75;
@@ -337,7 +511,8 @@ body::before { /* faint diamond lattice, like a heraldic field */
 }
 .stage.is-ready .loading { opacity: 0; }
 @keyframes spin { to { transform: rotate(360deg); } }
-/* Bio: hover on desktop, tap on touch */
+
+/* Card quote: hover on desktop, tap on touch */
 .bio {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
   padding: 26px 12px 12px;
@@ -349,9 +524,14 @@ body::before { /* faint diamond lattice, like a heraldic field */
   pointer-events: none;
 }
 .bio p { margin: 0; }
-.bio p::before { content: "“"; font-family: var(--font-display); color: var(--ice); font-size: 1.3em; line-height: 0; margin-right: 2px; vertical-align: -0.12em; }
-.bio p::after { content: "”"; font-family: var(--font-display); color: var(--ice); font-size: 1.3em; line-height: 0; margin-left: 2px; vertical-align: -0.12em; }
-.bio.is-placeholder p { color: var(--text-dim); font-style: italic; }
+.quote::before { content: "“"; font-family: var(--font-display); color: var(--ice); font-size: 1.3em; line-height: 0; margin-right: 2px; vertical-align: -0.12em; }
+.quote::after { content: "”"; font-family: var(--font-display); color: var(--ice); font-size: 1.3em; line-height: 0; margin-left: 2px; vertical-align: -0.12em; }
+.is-placeholder .quote, .quote.is-placeholder { color: var(--text-dim); font-style: italic; }
+.bio .more {
+  display: block; margin-top: 8px;
+  font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ice);
+}
 .card.is-open .bio, .card:focus-visible .bio { opacity: 1; transform: none; }
 @media (hover: hover) and (pointer: fine) {
   .card:hover .bio { opacity: 1; transform: none; }
@@ -384,10 +564,105 @@ body::before { /* faint diamond lattice, like a heraldic field */
 @media (max-width: 560px) {
   .card { padding: 9px; }
   .card-head { min-height: 40px; }
-  .crown-mark { width: 32px; height: 32px; }
-  .crown-mark svg { width: 17px; height: 17px; }
+  .role-mark { width: 32px; height: 32px; }
+  .role-mark svg { width: 17px; height: 17px; }
   .bio { font-size: 0.74rem; padding: 22px 9px 9px; }
   .rank { font-size: .58rem; letter-spacing: .12em; }
+}
+
+/* ---------- Players view: one full-screen profile per player ---------- */
+.profiles { position: relative; }
+.profile {
+  position: relative;
+  min-height: calc(100vh - var(--nav-h));
+  min-height: calc(100svh - var(--nav-h));
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+  max-width: 1200px; margin: 0 auto;
+  padding: 36px max(var(--gutter), 3vw) 64px;
+  border-bottom: 1px solid rgba(195, 199, 207, 0.12);
+}
+.profile-stage-wrap { display: flex; justify-content: center; }
+.stage.stage-lg {
+  height: min(74vh, 700px); height: min(74svh, 700px);
+  width: auto; max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(169, 220, 245, 0.08), 0 30px 80px rgba(0, 0, 0, 0.45);
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 42%, rgba(124, 196, 234, 0.22), transparent 70%),
+    linear-gradient(180deg, rgba(19, 35, 90, 0.35), rgba(6, 11, 32, 0.85));
+}
+.stage.stage-lg::before, .stage.stage-lg::after { width: 22px; height: 22px; }
+.profile-info { min-width: 0; }
+.profile-kicker { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: .74rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
+.profile-kicker .count { font-family: var(--font-display); color: var(--steel); }
+.profile-kicker .role-badge svg { width: 16px; height: 16px; }
+.profile-name {
+  margin: 10px 0 0;
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; letter-spacing: .04em;
+  color: var(--paper);
+  overflow-wrap: anywhere;
+}
+.profile-title { margin: 8px 0 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1rem, 2.4vw, 1.35rem); letter-spacing: .12em; color: var(--silver); }
+.profile-title.is-placeholder { color: var(--steel); font-size: .9rem; letter-spacing: .22em; text-transform: uppercase; }
+.profile-rating { display: flex; align-items: center; gap: 16px; margin-top: 22px; max-width: 420px; }
+.profile-rating .quips-value { font-size: clamp(2.4rem, 6vw, 3.4rem); }
+.profile-rating .quips { text-align: left; }
+.profile-rating .meter { flex: 1; height: 3px; margin: 0; }
+.profile-quote { margin: 24px 0 0; padding: 0 0 0 16px; border-left: 2px solid var(--ice-deep); font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.55; color: var(--text); }
+.profile h3 { margin: 28px 0 10px; font-family: var(--font-display); font-weight: 700; font-size: .82rem; letter-spacing: .24em; text-transform: uppercase; color: var(--ice); }
+.profile-about p { margin: 0 0 10px; color: var(--text); line-height: 1.7; }
+.profile-about.is-placeholder p { color: var(--text-dim); font-style: italic; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; }
+.facts div { padding: 8px 14px; border: 1px solid var(--line); border-radius: 4px; background: rgba(19, 35, 90, 0.45); }
+.facts dt { font-size: .62rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
+.facts dd { margin: 2px 0 0; font-weight: 600; color: var(--paper); }
+.achievements { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.achievements li { position: relative; padding-left: 24px; line-height: 1.5; }
+.achievements li::before {
+  content: ""; position: absolute; left: 4px; top: .5em; width: 8px; height: 8px;
+  transform: rotate(45deg);
+  border: 1px solid var(--ice); background: rgba(169, 220, 245, 0.25);
+}
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.link-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 999px;
+  color: var(--paper); text-decoration: none; font-size: .82rem; font-weight: 600;
+}
+.link-chip:hover { border-color: var(--ice); box-shadow: 0 0 14px rgba(124, 196, 234, 0.3); }
+.link-chip::after { content: "↗"; color: var(--ice); }
+.next-link {
+  position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--text-dim); text-decoration: none; white-space: nowrap;
+}
+.next-link:hover { color: var(--ice); }
+.next-link .arrow { display: inline-block; animation: bob 1.8s ease-in-out infinite; color: var(--ice); }
+@keyframes bob { 50% { transform: translateY(4px); } }
+.rail {
+  position: fixed; z-index: 30;
+  right: calc(var(--editor-w) + 18px); top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 9px;
+}
+.rail a {
+  display: block; width: 9px; height: 9px;
+  transform: rotate(45deg);
+  border: 1px solid var(--steel);
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.rail a:hover { border-color: var(--ice); }
+.rail a.is-active { background: var(--ice); border-color: var(--ice); box-shadow: 0 0 10px var(--ice-deep); }
+@media (max-width: 1099px) { .rail { display: none; } }
+@media (max-width: 820px) {
+  .profile { grid-template-columns: 1fr; align-content: start; gap: 22px; padding-top: 20px; padding-bottom: 72px; }
+  .stage.stage-lg { height: min(50vh, 500px); height: min(50svh, 500px); }
+  .profile-info { text-align: left; }
 }
 
 .footer {
@@ -397,6 +672,7 @@ body::before { /* faint diamond lattice, like a heraldic field */
   font-size: 0.78rem;
 }
 .footer strong { font-family: var(--font-display); letter-spacing: .14em; color: var(--silver); font-weight: 600; }
+.view-players .footer { padding-top: 32px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
@@ -430,9 +706,10 @@ body::before { /* faint diamond lattice, like a heraldic field */
   background: rgba(124, 196, 234, 0.08);
   font-size: .8rem;
 }
-.editor-notice[hidden] { display: none; }
 .editor-notice .btn { margin-top: 8px; }
 .editor-section-title { margin: 18px 0 8px; font-family: var(--font-display); font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ice); }
+.editor-section-title small { color: var(--text-dim); letter-spacing: 0; text-transform: none; font-family: var(--font-body); font-weight: 500; font-size: .76rem; }
+.sub-title { margin: 6px 0 -2px; padding-top: 10px; border-top: 1px dashed var(--line); font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--lavender); }
 .btn {
   appearance: none;
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
@@ -443,6 +720,7 @@ body::before { /* faint diamond lattice, like a heraldic field */
   border: 1px solid var(--line-strong);
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
 }
 .btn:hover { border-color: var(--ice); background: rgba(169, 220, 245, 0.12); }
 .btn:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
@@ -473,7 +751,7 @@ body::before { /* faint diamond lattice, like a heraldic field */
 .member-row summary .sum-warn { color: var(--danger); }
 .fields { padding: 4px 12px 12px; display: grid; gap: 10px; }
 .field label { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
-.field input[type="text"], .field input[type="number"], .field textarea {
+.field input[type="text"], .field input[type="number"], .field input[type="url"], .field textarea, .field select {
   width: 100%;
   padding: 8px 10px;
   font: 500 16px/1.35 var(--font-body); /* 16px avoids iOS zoom-on-focus */
@@ -482,22 +760,24 @@ body::before { /* faint diamond lattice, like a heraldic field */
   border: 1px solid var(--line-strong);
   border-radius: 4px;
 }
+.field select { appearance: auto; }
 .field textarea { min-height: 72px; resize: vertical; }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--ice); box-shadow: 0 0 0 3px rgba(124, 196, 234, 0.2); }
-.field.is-invalid input { border-color: var(--danger); }
+.field textarea.tall { min-height: 130px; }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--ice); box-shadow: 0 0 0 3px rgba(124, 196, 234, 0.2); }
+.field.is-invalid input, .field.is-invalid textarea { border-color: var(--danger); }
 .field .help { margin-top: 4px; font-size: .72rem; color: var(--text-dim); }
 .field.is-invalid .help { color: var(--danger); }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.check { display: flex; align-items: center; gap: 8px; font-size: .84rem; cursor: pointer; }
-.check input { width: 18px; height: 18px; accent-color: var(--ice-deep); }
+.skin-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 .row-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.row-foot .btns { display: flex; gap: 6px; }
 .skin-status { font-size: .72rem; color: var(--text-dim); }
 .skin-status.is-bad { color: var(--danger); }
+.skin-status.is-up { color: var(--lavender); }
 .editor-fab {
   position: fixed; z-index: 49; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom));
   box-shadow: 0 8px 24px rgba(0,0,0,.5);
 }
-.editor-fab[hidden] { display: none; }
 .toast {
   position: fixed; z-index: 60; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom));
   transform: translate(-50%, 20px);
@@ -512,41 +792,58 @@ body::before { /* faint diamond lattice, like a heraldic field */
 }
 .toast.is-on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
 .edit-flag {
-  position: fixed; z-index: 48; left: 12px; top: 12px;
-  padding: 4px 10px; border-radius: 999px;
-  font: 700 .68rem/1.4 var(--font-body); letter-spacing: .16em; text-transform: uppercase;
+  display: inline-block; flex: none;
+  padding: 3px 9px; border-radius: 999px;
+  font: 700 .62rem/1.4 var(--font-body); letter-spacing: .16em; text-transform: uppercase;
   color: var(--navy-900); background: var(--ice);
 }
-body.editing .card { cursor: pointer; }
-body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glow); }
+body.editing .is-selected { border-color: var(--ice) !important; box-shadow: var(--glow); }
 @media (min-width: 900px) {
   body.editing.editor-open { --editor-w: 400px; }
 }
 @media (max-width: 899px) {
   .editor { top: auto; left: 0; width: 100%; height: min(72vh, 640px); border-left: 0; border-top: 1px solid var(--line-strong); border-radius: 12px 12px 0 0; }
   .editor.is-collapsed { transform: translateY(100%); }
-  body.editing.editor-open .roster { padding-bottom: 74vh; }
+  body.editing.editor-open .page { padding-bottom: 74vh; }
 }
 </style>
 </head>
 <body>
 <div class="page">
-  <header class="hero">
-    <div class="crest-wrap">
-      <img class="crest" src="logo.png" alt="The Vanguard crest: a navy shield with crossed swords, framed by ice-blue roses and laurel leaves" width="835" height="783" fetchpriority="high">
+  <nav class="topbar" aria-label="Main">
+    <a class="brand" href="#roster"><img src="logo.png" alt="" width="32" height="30"><span id="brand-name">VANGUARD</span></a>
+    <div class="tabs">
+      <a class="tab" href="#roster" data-view="roster">Roster</a>
+      <a class="tab" href="#players" data-view="players">Players</a>
     </div>
-    <h1 class="team-name" id="team-name">Vanguard</h1>
-    <p class="tagline" id="team-tagline">A Legions PvP team</p>
-    <div class="divider"><span id="member-count">The Roster</span></div>
-  </header>
+    <div class="nav-right" id="nav-right"></div>
+  </nav>
 
-  <main class="roster">
-    <div class="grid" id="grid" aria-live="polite"></div>
-    <noscript><p style="text-align:center;color:#a3abbd">Turn on JavaScript to see the Vanguard roster.</p></noscript>
+  <main id="view-roster">
+    <header class="hero">
+      <div class="crest-wrap">
+        <img class="crest" src="logo.png" alt="The Vanguard crest: a navy shield with crossed swords, framed by ice-blue roses and laurel leaves" width="835" height="783" fetchpriority="high">
+      </div>
+      <h1 class="team-name" id="team-name">Vanguard</h1>
+      <p class="tagline" id="team-tagline">A Legions League team</p>
+      <div id="hero-discord"></div>
+      <div id="welcome-slot"></div>
+      <div class="divider"><span id="member-count">The Roster</span></div>
+    </header>
+
+    <section class="roster" aria-label="Roster">
+      <div class="grid" id="grid"></div>
+      <noscript><p style="text-align:center;color:#a3abbd">Turn on JavaScript to see the Vanguard roster.</p></noscript>
+    </section>
+  </main>
+
+  <main id="view-players" hidden>
+    <div class="profiles" id="profiles"></div>
+    <nav class="rail" id="rail" aria-label="Jump to player"></nav>
   </main>
 
   <footer class="footer">
-    <strong id="footer-name">VANGUARD</strong> · Legions PvP · Skins load live from Minecraft usernames
+    <strong id="footer-name">VANGUARD</strong> · Legions League · Skins load live from Minecraft usernames
   </footer>
 </div>
 
@@ -561,7 +858,6 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
   var MARK_START = "/* ===== VANGUARD " + "DATA START =====";
   var MARK_END = "/* ===== VANGUARD " + "DATA END ===== */";
   var DRAFT_KEY = "vanguard-editor-draft-v1";
-  var EDIT_MODE = new URLSearchParams(location.search).has("edit");
 
   var SKINVIEW_URLS = [
     "https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/bundles/skinview3d.bundle.js",
@@ -576,39 +872,51 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
   var FLAT_BODY_URL = function (n) { return "https://mc-heads.net/body/" + encodeURIComponent(n) + "/240"; };
 
   var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var ROLES = ["owner", "manager", "member"];
+  var ROLE_LABEL = { owner: "Owner", manager: "Manager", member: "Member" };
 
   /* ---------------- Data helpers ---------------- */
   var nextId = 1;
+  function str(v) { return v == null ? "" : String(v); }
+  function list(v) {
+    if (Array.isArray(v)) return v.map(str).map(function (s) { return s.trim(); }).filter(Boolean);
+    return str(v).split("\n").map(function (s) { return s.trim(); }).filter(Boolean);
+  }
   function normalizeMember(m) {
     m = m || {};
     var rating = m.rating;
     if (rating === "" || rating === undefined || rating === null || isNaN(Number(rating))) rating = null;
     else rating = Number(rating);
+    var role = ROLES.indexOf(m.role) >= 0 ? m.role : (m.owner === true ? "owner" : "member");
     return {
       _id: nextId++,
-      name: String(m.name == null ? "" : m.name),
-      skin: String(m.skin == null ? "" : m.skin),
-      title: String(m.title == null ? "" : m.title),
-      rating: rating,
-      owner: m.owner === true,
-      bio: String(m.bio == null ? "" : m.bio)
+      name: str(m.name), skin: str(m.skin), role: role, rating: role === "owner" ? null : rating,
+      title: str(m.title), bio: str(m.bio),
+      about: str(m.about), joined: str(m.joined), playstyle: str(m.playstyle),
+      achievements: list(m.achievements), links: list(m.links),
+      skinFile: /^data:image\/png;base64,[A-Za-z0-9+\/=]+$/.test(str(m.skinFile)) ? str(m.skinFile) : ""
     };
   }
   function normalize(data) {
     data = data || {};
-    var team = data.team || {};
+    var t = data.team || {};
     return {
-      team: { name: String(team.name || "Vanguard"), tagline: String(team.tagline == null ? "" : team.tagline) },
+      team: {
+        name: str(t.name) || "Vanguard", tagline: str(t.tagline),
+        message: str(t.message), messageBy: str(t.messageBy),
+        discord: str(t.discord), editKey: str(t.editKey).trim()
+      },
       members: (data.members || []).map(normalizeMember)
     };
   }
   function ratingValid(r) { return r === null || (typeof r === "number" && r >= 0.1 && r <= 2.0); }
-  function sortMembers(list) {
-    return list.slice().sort(function (a, b) {
-      if (a.owner !== b.owner) return a.owner ? -1 : 1;
-      var ra = (!a.owner && ratingValid(a.rating) && a.rating !== null) ? a.rating : -1;
-      var rb = (!b.owner && ratingValid(b.rating) && b.rating !== null) ? b.rating : -1;
-      if (ra !== rb) return rb - ra;
+  function hasRating(m) { return m.role !== "owner" && m.rating !== null && ratingValid(m.rating); }
+  function sortMembers(arr) {
+    return arr.slice().sort(function (a, b) {
+      var ra = ROLES.indexOf(a.role), rb = ROLES.indexOf(b.role);
+      if (ra !== rb) return ra - rb;
+      var qa = hasRating(a) ? a.rating : -1, qb = hasRating(b) ? b.rating : -1;
+      if (qa !== qb) return qb - qa;
       return (a.name || "").localeCompare(b.name || "", undefined, { sensitivity: "base" });
     });
   }
@@ -617,32 +925,65 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     return s.indexOf(".") === -1 ? s + ".0" : s;
   }
   function skinNameOf(m) { return (m.skin || m.name || "").trim(); }
+  function safeUrl(u) {
+    u = str(u).trim();
+    if (!u) return null;
+    if (!/^[a-z][a-z0-9+.-]*:/i.test(u)) u = "https://" + u;
+    try { var p = new URL(u); return (p.protocol === "https:" || p.protocol === "http:") ? p.href : null; } catch (e) { return null; }
+  }
+  function linkLabel(href) {
+    var h = new URL(href).hostname.replace(/^www\./, "").toLowerCase();
+    var map = [["youtube.com", "YouTube"], ["youtu.be", "YouTube"], ["twitch.tv", "Twitch"], ["tiktok.com", "TikTok"],
+      ["twitter.com", "X / Twitter"], ["x.com", "X / Twitter"], ["instagram.com", "Instagram"], ["discord.gg", "Discord"],
+      ["discord.com", "Discord"], ["namemc.com", "NameMC"], ["github.com", "GitHub"], ["kick.com", "Kick"]];
+    for (var i = 0; i < map.length; i++) if (h === map[i][0] || h.slice(-map[i][0].length - 1) === "." + map[i][0]) return map[i][1];
+    return h;
+  }
+  function slugify(s) { return str(s).toLowerCase().replace(/[^a-z0-9_]+/g, "-").replace(/^-+|-+$/g, "") || "player"; }
 
   /* Turns the data back into the text block that lives at the top of index.html. */
+  var LS = String.fromCharCode(0x2028), PS = String.fromCharCode(0x2029);
+  function q(v) { return JSON.stringify(v).replace(/</g, "\\u003c").split(LS).join("\\u2028").split(PS).join("\\u2029"); }
   function serialize(data) {
-    var q = function (v) { return JSON.stringify(v).replace(/</g, "\\u003c").replace(/[\u2028]/g, "\\u2028").replace(/[\u2029]/g, "\\u2029"); };
-    var lines = sortMembers(data.members).map(function (m) {
-      var parts = [
-        "name: " + q(m.name),
-        "skin: " + q(m.skin || m.name),
-        "title: " + q(m.title),
-        "rating: " + (m.owner || m.rating === null ? "null" : fmtRating(m.rating))
+    var blocks = sortMembers(data.members).map(function (m) {
+      var lines = [
+        "name: " + q(m.name) + ", skin: " + q(m.skin || m.name) + ", role: " + q(m.role) + ", rating: " + (hasRating(m) ? fmtRating(m.rating) : "null") + ",",
+        "title: " + q(m.title) + ", bio: " + q(m.bio) + ",",
+        "about: " + q(m.about) + ",",
+        "joined: " + q(m.joined) + ", playstyle: " + q(m.playstyle) + ",",
+        "achievements: [" + m.achievements.map(q).join(", ") + "],",
+        "links: [" + m.links.map(q).join(", ") + "]" + (m.skinFile ? "," : "")
       ];
-      if (m.owner) parts.push("owner: true");
-      parts.push("bio: " + q(m.bio));
-      return "    { " + parts.join(", ") + " }";
+      if (m.skinFile) lines.push("skinFile: " + q(m.skinFile));
+      return "    {\n      " + lines.join("\n      ") + "\n    }";
     });
+    var t = data.team;
     return "window.VANGUARD = {\n" +
       "  team: {\n" +
-      "    name: " + q(data.team.name) + ",\n" +
-      "    tagline: " + q(data.team.tagline) + "\n" +
+      "    name: " + q(t.name) + ",\n" +
+      "    tagline: " + q(t.tagline) + ",\n" +
+      "    message: " + q(t.message) + ",\n" +
+      "    messageBy: " + q(t.messageBy) + ",\n" +
+      "    discord: " + q(t.discord) + ",\n" +
+      "    editKey: " + q(t.editKey) + "\n" +
       "  },\n" +
-      "  members: [\n" + lines.join(",\n") + "\n  ]\n};";
+      "  members: [\n" + blocks.join(",\n") + "\n  ]\n};";
   }
-  function plain(data) { return serialize(data); } // comparable fingerprint
+  function plain(data) { return serialize(data); }
+  function stripIds(data) {
+    return {
+      team: Object.assign({}, data.team),
+      members: data.members.map(function (m) {
+        var o = {}; Object.keys(m).forEach(function (k) { if (k !== "_id") o[k] = Array.isArray(m[k]) ? m[k].slice() : m[k]; }); return o;
+      })
+    };
+  }
+  function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return String(h >>> 0); }
 
   var BAKED = normalize(window.VANGUARD);
   var state = BAKED;
+  var params = new URLSearchParams(location.search);
+  var EDIT_MODE = params.has("edit") && (!BAKED.team.editKey || params.get("edit") === BAKED.team.editKey);
 
   /* ---------------- Small DOM helpers ---------------- */
   function el(tag, cls, text) {
@@ -651,20 +992,29 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     if (text != null) e.textContent = text;
     return e;
   }
-  var CROWN_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7.5l4.6 4.1L12 4.5l4.4 7.1L21 7.5l-1.9 10.3H4.9L3 7.5zm2.2 11.8h13.6V21H5.2v-1.7z"/></svg>';
+  var ICONS = {
+    owner: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7.5l4.6 4.1L12 4.5l4.4 7.1L21 7.5l-1.9 10.3H4.9L3 7.5zm2.2 11.8h13.6V21H5.2v-1.7z"/></svg>',
+    manager: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l8 3v6.2c0 5-3.4 9.4-8 10.8-4.6-1.4-8-5.8-8-10.8V5l8-3zm0 2.1L6 6.4v4.8c0 3.9 2.5 7.4 6 8.7 3.5-1.3 6-4.8 6-8.7V6.4l-6-2.3zm-1 4.4h2v3.2h3.1v2H13V17h-2v-3.3H7.9v-2H11V8.5z"/></svg>',
+    discord: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.6 5.3A17 17 0 0 0 15.4 4l-.5 1a15.6 15.6 0 0 0-5.8 0L8.6 4a17 17 0 0 0-4.2 1.3C1.7 9.3 1 13.2 1.3 17a17 17 0 0 0 5.2 2.6l1.1-1.8c-.6-.2-1.2-.5-1.8-.9l.4-.3a12.2 12.2 0 0 0 11.6 0l.4.3c-.6.4-1.2.7-1.8.9l1.1 1.8a17 17 0 0 0 5.2-2.6c.4-4.4-.7-8.2-3.1-11.7zM8.7 14.7c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm6.6 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></svg>'
+  };
+  function roleBadge(role) {
+    var b = el("span", "role-badge " + role);
+    b.innerHTML = ICONS[role] || "";
+    b.appendChild(document.createTextNode(ROLE_LABEL[role]));
+    return b;
+  }
 
   /* ---------------- 3D skin engine ----------------
      ONE WebGL context for the whole page. A single hidden skinview3d viewer
-     renders each visible card in turn, and the frame is copied onto that
-     card's own plain 2D canvas. Off-screen cards are not drawn at all. */
+     renders each visible model in turn and the frame is copied onto that
+     model's own plain 2D canvas. Anything off-screen is not drawn at all.
+     "Slots" hold one texture per player; "targets" are the canvases that
+     show it (the roster card and the big profile both use the same slot). */
   var Engine = {
-    status: "loading", // loading | ready | failed
-    viewer: null,
-    TexCtor: null,
-    nearest: null,
-    width: 0, height: 0, ratio: 1,
-    cards: [],
-    waiting: []
+    status: "loading", // loading | ready | failed | lost
+    viewer: null, TexCtor: null, nearest: null,
+    curW: 0, curH: 0, curR: 0,
+    targets: [], slots: {}, waiting: []
   };
 
   function loadScript(urls, i) {
@@ -689,17 +1039,13 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     var g = c.getContext("2d");
     function r(x, y, w, h, col) { g.fillStyle = col; g.fillRect(x, y, w, h); }
     var skin = "#b5835a", skinDark = "#9c6b48", hair = "#3b2716", shirt = "#00aaaa", shirtDark = "#008c8c", pants = "#3c3ca0", pantsDark = "#2f2f86", shoe = "#5a5a5a";
-    // head
     r(0, 0, 32, 16, skin); r(8, 0, 8, 8, hair); r(16, 0, 8, 8, skinDark); r(24, 8, 8, 8, hair);
     r(0, 8, 8, 3, hair); r(16, 8, 8, 3, hair); r(8, 8, 8, 2, hair); r(8, 10, 1, 1, hair); r(15, 10, 1, 1, hair);
     r(9, 12, 1, 1, "#ffffff"); r(10, 12, 1, 1, "#523d89"); r(13, 12, 1, 1, "#523d89"); r(14, 12, 1, 1, "#ffffff");
     r(11, 13, 2, 1, skinDark); r(10, 14, 4, 1, "#6a4030"); r(10, 15, 1, 1, "#6a4030"); r(13, 15, 1, 1, "#6a4030");
-    // body
     r(16, 16, 24, 16, shirt); r(20, 16, 8, 4, shirtDark);
-    // right arm + left arm (sleeve then skin)
     function arm(x, y) { r(x, y, 16, 16, skin); r(x + 4, y, 4, 4, shirt); r(x, y + 4, 16, 4, shirt); r(x + 8, y, 4, 4, skinDark); }
     arm(40, 16); arm(32, 48);
-    // legs
     function leg(x, y) { r(x, y, 16, 16, pants); r(x + 4, y, 4, 4, pantsDark); r(x + 8, y, 4, 4, shoe); r(x, y + 13, 16, 3, shoe); }
     leg(0, 16); leg(16, 48);
     return c;
@@ -710,7 +1056,7 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     return new Promise(function (resolve, reject) {
       var img = new Image();
       var t = setTimeout(function () { img.src = ""; reject(new Error("timeout")); }, timeout || 9000);
-      img.crossOrigin = "anonymous";
+      if (url.slice(0, 5) !== "data:") img.crossOrigin = "anonymous";
       img.decoding = "async";
       img.onload = function () {
         clearTimeout(t);
@@ -725,8 +1071,8 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
   /* Fetch a username's skin from the first service that works. */
   var skinCache = {};
   function fetchSkin(name) {
-    var key = name.toLowerCase();
     if (!name) return Promise.resolve({ image: null, source: "default" });
+    var key = name.toLowerCase();
     if (skinCache[key]) return skinCache[key];
     var p = (function tryAt(i) {
       if (i >= SKIN_SOURCES.length) return Promise.resolve({ image: null, source: "default" });
@@ -740,13 +1086,12 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
 
   function initEngine() {
     return loadScript(SKINVIEW_URLS).then(function () {
-      Engine.ratio = Math.min(window.devicePixelRatio || 1, 2);
       var viewer = new skinview3d.SkinViewer({
         width: 240, height: 320,
         renderPaused: true,
         preserveDrawingBuffer: true,
         enableControls: false,
-        pixelRatio: Engine.ratio,
+        pixelRatio: 1,
         fov: 38,
         zoom: 0.9
       });
@@ -761,97 +1106,119 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
       viewer.canvas.addEventListener("webglcontextlost", function () { Engine.status = "lost"; });
       viewer.canvas.addEventListener("webglcontextrestored", function () {
         Engine.status = "ready";
-        Engine.cards.forEach(function (c) { if (c.tex) c.tex.needsUpdate = true; });
+        Object.keys(Engine.slots).forEach(function (k) { var s = Engine.slots[k]; if (s.tex) s.tex.needsUpdate = true; });
+        Engine.targets.forEach(function (t) { t.dirty = true; });
       });
-      sizeEngine();
+      sizeTargets();
       Engine.waiting.forEach(function (fn) { fn(); });
       Engine.waiting = [];
       requestAnimationFrame(frame);
     }).catch(function (err) {
       console.warn("[Vanguard] 3D skins unavailable, showing flat renders:", err && err.message);
       Engine.status = "failed";
-      Engine.cards.forEach(showFlat);
+      Engine.targets.forEach(showFlat);
       Engine.waiting = [];
     });
   }
 
-  function sizeEngine() {
-    var first = Engine.cards[0];
-    if (!first || !Engine.viewer) return;
-    var rect = first.stage.getBoundingClientRect();
-    var w = Math.max(80, Math.round(rect.width)), h = Math.max(100, Math.round(rect.height));
-    // cap the internal resolution so very large cards stay cheap to draw
-    Engine.ratio = Math.max(0.75, Math.min(window.devicePixelRatio || 1, 2, 760 / h));
-    if (w === Engine.width && h === Engine.height && Engine.viewer.pixelRatio === Engine.ratio) return;
-    Engine.width = w; Engine.height = h;
-    Engine.viewer.pixelRatio = Engine.ratio;
-    Engine.viewer.setSize(w, h);
-    var cw = Math.round(w * Engine.ratio), ch = Math.round(h * Engine.ratio);
-    Engine.cards.forEach(function (c) {
-      if (c.canvas.width !== cw || c.canvas.height !== ch) { c.canvas.width = cw; c.canvas.height = ch; c.dirty = true; }
+  function sizeTargets() {
+    var dpr = window.devicePixelRatio || 1;
+    Engine.targets.forEach(function (t) {
+      var rect = t.stage.getBoundingClientRect();
+      if (rect.width < 2 || rect.height < 2) return; // hidden view
+      var w = Math.round(rect.width), h = Math.round(rect.height);
+      // cap the internal resolution so very large models stay cheap to draw
+      var r = Math.max(0.75, Math.min(dpr, 2, (t.big ? 1100 : 760) / h));
+      r = Math.round(r * 100) / 100;
+      var cw = Math.round(w * r), ch = Math.round(h * r);
+      t.w = w; t.h = h; t.ratio = r;
+      if (t.canvas.width !== cw || t.canvas.height !== ch) { t.canvas.width = cw; t.canvas.height = ch; t.dirty = true; }
     });
   }
+  var sizeQueued = false;
+  function queueSize() { if (sizeQueued) return; sizeQueued = true; requestAnimationFrame(function () { sizeQueued = false; sizeTargets(); }); }
 
-  function showFlat(c) {
-    if (c.flat) { c.flat.src = FLAT_BODY_URL(c.skinName || "MHF_Steve"); return; }
-    c.canvas.style.display = "none";
+  function showFlat(t) {
+    var name = t.slot.skinName || "MHF_Steve";
+    if (t.flat) { t.flat.src = FLAT_BODY_URL(name); return; }
+    t.canvas.style.display = "none";
     var img = el("img", "flat");
     img.alt = "";
-    img.onload = function () { c.stage.classList.add("is-ready"); };
-    img.onerror = function () { c.stage.classList.add("is-ready"); img.style.visibility = "hidden"; };
-    img.src = FLAT_BODY_URL(c.skinName || "MHF_Steve");
-    c.flat = img;
-    c.stage.insertBefore(img, c.stage.querySelector(".loading"));
+    img.onload = function () { t.stage.classList.add("is-ready"); };
+    img.onerror = function () { t.stage.classList.add("is-ready"); img.style.visibility = "hidden"; };
+    img.src = FLAT_BODY_URL(name);
+    t.flat = img;
+    t.stage.insertBefore(img, t.stage.querySelector(".loading"));
   }
 
-  /* Load (or reload) one card's skin into its own texture. */
-  function applySkin(c) {
-    var name = c.skinName;
-    var token = ++c.loadToken;
-    c.stage.classList.remove("is-ready");
-    if (Engine.status === "failed") { showFlat(c); return; }
-    fetchSkin(name).then(function (res) {
-      if (token !== c.loadToken) return; // a newer username was typed meanwhile
+  function getSlot(id) {
+    if (!Engine.slots[id]) Engine.slots[id] = { id: id, skinName: null, skinFile: null, tex: null, model: "default", source: null, loadToken: 0, timer: null, onStatus: null, c64: null };
+    return Engine.slots[id];
+  }
+  function slotTargets(slot) { return Engine.targets.filter(function (t) { return t.slot === slot; }); }
+
+  /* Load (or reload) one player's skin into their texture. */
+  function applySkin(slot) {
+    var token = ++slot.loadToken;
+    slotTargets(slot).forEach(function (t) { t.stage.classList.remove("is-ready"); });
+    if (Engine.status === "failed") { slotTargets(slot).forEach(showFlat); return; }
+    var p = slot.skinFile
+      ? loadImage(slot.skinFile).then(function (img) { return { image: img, source: "uploaded" }; }, function () { return fetchSkin(slot.skinName); })
+      : fetchSkin(slot.skinName);
+    p.then(function (res) {
+      if (token !== slot.loadToken) return; // a newer username was typed meanwhile
       function go() {
-        if (token !== c.loadToken || Engine.status === "failed") return;
+        if (token !== slot.loadToken || Engine.status === "failed") return;
         var v = Engine.viewer, source = res.source;
         try { v.loadSkin(res.image || DEFAULT_SKIN, { model: "auto-detect" }); }
         catch (e) { v.loadSkin(DEFAULT_SKIN); source = "default"; }
-        var g = c.skin64.getContext("2d");
+        if (!slot.c64) { slot.c64 = document.createElement("canvas"); slot.c64.width = 64; slot.c64.height = 64; }
+        var g = slot.c64.getContext("2d");
         g.clearRect(0, 0, 64, 64);
         g.drawImage(v.skinCanvas, 0, 0);
-        c.model = v.playerObject.skin.modelType;
-        if (c.tex) c.tex.dispose();
-        c.tex = new Engine.TexCtor(c.skin64);
-        c.tex.magFilter = Engine.nearest; c.tex.minFilter = Engine.nearest;
-        c.tex.needsUpdate = true;
-        c.source = source;
-        c.dirty = true;
-        c.stage.classList.add("is-ready");
-        if (c.onSkinStatus) c.onSkinStatus(source);
+        slot.model = v.playerObject.skin.modelType;
+        if (slot.tex) slot.tex.dispose();
+        slot.tex = new Engine.TexCtor(slot.c64);
+        slot.tex.magFilter = Engine.nearest; slot.tex.minFilter = Engine.nearest;
+        slot.tex.needsUpdate = true;
+        slot.source = source;
+        slotTargets(slot).forEach(function (t) { t.dirty = true; t.stage.classList.add("is-ready"); });
+        if (slot.onStatus) slot.onStatus(source);
       }
       if (Engine.status === "loading") Engine.waiting.push(go); else go();
     });
   }
+  function setSlotSkin(slot, name, file, immediate) {
+    if (name === slot.skinName && file === slot.skinFile) return;
+    var fileChanged = file !== slot.skinFile;
+    slot.skinName = name; slot.skinFile = file;
+    clearTimeout(slot.timer);
+    if (immediate || fileChanged) applySkin(slot);
+    else slot.timer = setTimeout(function () { applySkin(slot); }, 650); // wait until you stop typing
+  }
 
-  /* Auto-spinning cards are redrawn ~30 times a second (plenty for a slow turn); a card being
-     dragged is redrawn every frame. Each frame has a time budget: if the device is slow, the
-     remaining cards simply wait for the next frame, so scrolling and dragging stay smooth. */
+  /* Auto-spinning models are redrawn ~30 times a second (plenty for a slow turn); one being
+     dragged is redrawn every frame. Each frame has a time budget, and if the device falls
+     behind the rest simply wait a frame, so scrolling and dragging stay smooth. */
   var lastTime = 0, cursor = 0, slowFrames = 0, slowMode = false;
   var SPIN_SPEED = 0.45; // radians per second
-  function drawCard(c) {
-    var v = Engine.viewer, po = v.playerObject;
-    if (po.skin.map !== c.tex) po.skin.map = c.tex;
-    if (po.skin.modelType !== c.model) po.skin.modelType = c.model;
-    var sway = Math.cos(c.phase * 1.6) * 0.03 * Math.PI;
+  function drawTarget(t) {
+    var v = Engine.viewer, po = v.playerObject, s = t.slot;
+    if (Engine.curW !== t.w || Engine.curH !== t.h || Engine.curR !== t.ratio) {
+      v.pixelRatio = t.ratio; v.setSize(t.w, t.h);
+      Engine.curW = t.w; Engine.curH = t.h; Engine.curR = t.ratio;
+    }
+    if (po.skin.map !== s.tex) po.skin.map = s.tex;
+    if (po.skin.modelType !== s.model) po.skin.modelType = s.model;
+    var sway = Math.cos(t.phase * 1.6) * 0.03 * Math.PI;
     po.skin.leftArm.rotation.z = sway + 0.02 * Math.PI;
     po.skin.rightArm.rotation.z = -sway - 0.02 * Math.PI;
-    po.skin.head.rotation.y = Math.sin(c.phase * 0.7) * 0.08;
-    v.playerWrapper.rotation.y = c.angle;
+    po.skin.head.rotation.y = Math.sin(t.phase * 0.7) * 0.08;
+    v.playerWrapper.rotation.y = t.angle;
     v.render();
-    c.ctx.clearRect(0, 0, c.canvas.width, c.canvas.height);
-    c.ctx.drawImage(v.canvas, 0, 0, c.canvas.width, c.canvas.height);
-    c.dirty = false;
+    t.ctx.clearRect(0, 0, t.canvas.width, t.canvas.height);
+    t.ctx.drawImage(v.canvas, 0, 0, t.canvas.width, t.canvas.height);
+    t.dirty = false;
   }
   function frame(now) {
     requestAnimationFrame(frame);
@@ -859,28 +1226,28 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     lastTime = now;
     if (Engine.status !== "ready") return;
     var t0 = performance.now();
-    var cards = Engine.cards, n = cards.length;
-    // "slow" = the browser isn't keeping up (frames arriving late). GPU work doesn't show up in
-    // JavaScript timings, so frame spacing is the honest signal.
-    if (slowFrames > 20) slowMode = true; else if (slowFrames === 0) slowMode = false;
-    var slow = slowMode;
-    var interval = slow ? 66 : 33, budget = 12, maxSpin = slow ? 2 : 99, drawn = 0, spun = 0;
-    for (var k = 0; k < n; k++) {
-      var c = cards[k];
-      if (!c.dragging) {
-        if (Math.abs(c.vel) > 0.02) { c.angle += c.vel * dt; c.vel *= Math.pow(0.05, dt); }
-        else { c.vel = 0; if (!reduceMotion) c.angle += SPIN_SPEED * dt; }
+    var all = Engine.targets, k;
+    for (k = 0; k < all.length; k++) {
+      var t = all[k];
+      if (!t.dragging) {
+        if (Math.abs(t.vel) > 0.02) { t.angle += t.vel * dt; t.vel *= Math.pow(0.05, dt); }
+        else { t.vel = 0; if (!reduceMotion) t.angle += SPIN_SPEED * dt; }
       }
-      if (!reduceMotion) c.phase += dt;
+      if (!reduceMotion) t.phase += dt;
     }
+    // visible models, grouped by size so the shared renderer is resized as little as possible
+    var vis = all.filter(function (t) { return t.visible && t.slot.tex && t.w; });
+    vis.sort(function (a, b) { return (a.w * 10000 + a.h) - (b.w * 10000 + b.h); });
+    if (slowFrames > 20) slowMode = true; else if (slowFrames === 0) slowMode = false;
+    var interval = slowMode ? 66 : 33, budget = 12, maxSpin = slowMode ? 2 : 99, drawn = 0, spun = 0;
+    var n = vis.length;
     for (var j = 0; j < n; j++) {
-      var card = cards[(cursor + j) % n];
-      if (!card.visible || !card.tex) continue;
-      var urgent = card.dragging || card.vel !== 0 || card.dirty;
-      if (!urgent && (reduceMotion || now - (card.lastDraw || 0) < interval)) continue;
+      var tg = vis[(cursor + j) % n];
+      var urgent = tg.dragging || tg.vel !== 0 || tg.dirty;
+      if (!urgent && (reduceMotion || now - (tg.lastDraw || 0) < interval)) continue;
       if (!urgent && (spun >= maxSpin || (drawn > 0 && performance.now() - t0 > budget))) continue;
-      drawCard(card);
-      card.lastDraw = now;
+      drawTarget(tg);
+      tg.lastDraw = now;
       drawn++;
       if (!urgent) spun++;
     }
@@ -893,77 +1260,43 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
 
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
-      var c = e.target._card;
-      if (c) { c.visible = e.isIntersecting; if (c.visible) c.dirty = true; }
+      var t = e.target._target;
+      if (t) { t.visible = e.isIntersecting; if (t.visible) t.dirty = true; }
     });
   }, { rootMargin: "120px 0px" }) : null;
+  var ro = "ResizeObserver" in window ? new ResizeObserver(queueSize) : null;
+  window.addEventListener("resize", queueSize);
 
-  var ro = "ResizeObserver" in window ? new ResizeObserver(function () { sizeEngine(); }) : null;
-  window.addEventListener("resize", sizeEngine);
-
-  /* ---------------- Cards ---------------- */
-  var cardsById = {};
-  var grid = document.getElementById("grid");
-  var openCard = null;
-
-  function setOpen(c, open) {
-    if (open && openCard && openCard !== c) openCard.el.classList.remove("is-open");
-    c.el.classList.toggle("is-open", open);
-    openCard = open ? c : (openCard === c ? null : openCard);
-  }
-
-  function createCard(m) {
-    var c = {
-      id: m._id, angle: (Math.random() - 0.5) * 1.2, vel: 0, phase: Math.random() * 6,
-      visible: !io, dragging: false, dirty: true, tex: null, model: "default",
-      loadToken: 0, skinName: null, source: null, skinTimer: null
-    };
-    var art = el("article", "card");
-    art.tabIndex = 0;
-    var head = el("div", "card-head");
-    var nameBlock = el("div", "name-block");
-    c.nameEl = el("h2", "player-name");
-    c.rankEl = el("span", "rank");
-    nameBlock.appendChild(c.nameEl); nameBlock.appendChild(c.rankEl);
-    c.badgeSlot = el("div");
-    c.badgeSlot.style.flex = "none";
-    head.appendChild(nameBlock); head.appendChild(c.badgeSlot);
-    var meter = el("div", "meter"); c.meterFill = el("i"); meter.appendChild(c.meterFill);
-
-    var stage = el("div", "stage");
+  /* A framed stage with a model that spins and can be dragged. onTap fires on a tap/click (not a drag). */
+  function makeStage(slot, big, onTap) {
+    var stage = el("div", "stage" + (big ? " stage-lg" : ""));
     stage.appendChild(el("div", "floor"));
     var canvas = el("canvas");
     canvas.setAttribute("role", "img");
     stage.appendChild(canvas);
     stage.appendChild(el("div", "loading"));
-    c.bioEl = el("div", "bio"); c.bioText = el("p"); c.bioEl.appendChild(c.bioText);
-    stage.appendChild(c.bioEl);
-    var tap = el("span", "tap-hint", "i"); tap.setAttribute("aria-hidden", "true");
-    stage.appendChild(tap);
+    var t = {
+      slot: slot, stage: stage, canvas: canvas, ctx: canvas.getContext("2d"), big: big,
+      angle: (Math.random() - 0.5) * 1.2, vel: 0, phase: Math.random() * 6,
+      visible: !io, dragging: false, dirty: true, w: 0, h: 0, ratio: 1, lastDraw: 0
+    };
+    stage._target = t;
 
-    c.titleEl = el("p", "card-title");
-    art.appendChild(head); art.appendChild(meter); art.appendChild(stage); art.appendChild(c.titleEl);
-
-    c.el = art; c.stage = stage; c.canvas = canvas; c.ctx = canvas.getContext("2d");
-    c.skin64 = document.createElement("canvas"); c.skin64.width = 64; c.skin64.height = 64;
-    stage._card = c;
-
-    /* Drag to spin (mouse, touch, pen). A short tap toggles the bio. */
     var startX = 0, startY = 0, lastX = 0, lastT = 0, pid = null, moved = false;
     stage.addEventListener("pointerdown", function (e) {
       if (e.button !== undefined && e.button !== 0) return;
       pid = e.pointerId; startX = lastX = e.clientX; startY = e.clientY; lastT = performance.now(); moved = false;
-      c.vel = 0;
+      t.vel = 0;
       try { stage.setPointerCapture(pid); } catch (err) {}
     });
     stage.addEventListener("pointermove", function (e) {
       if (e.pointerId !== pid) return;
       var dx = e.clientX - lastX;
-      if (!moved && Math.abs(e.clientX - startX) > 5) { moved = true; c.dragging = true; stage.classList.add("is-dragging"); }
+      if (!moved && Math.abs(e.clientX - startX) > 5) { moved = true; t.dragging = true; stage.classList.add("is-dragging"); }
       if (moved) {
         var now = performance.now(), dtm = Math.max(1, now - lastT);
-        c.angle += dx * 0.012;
-        c.vel = c.vel * 0.6 + (dx * 0.012) / (dtm / 1000) * 0.4;
+        t.angle += dx * 0.012;
+        t.vel = t.vel * 0.6 + (dx * 0.012) / (dtm / 1000) * 0.4;
         lastT = now;
       }
       lastX = e.clientX;
@@ -971,115 +1304,314 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     function end(e, cancelled) {
       if (e.pointerId !== pid) return;
       pid = null;
-      if (!moved && !cancelled && Math.abs(e.clientY - startY) < 8 && e.pointerType !== "mouse") {
-        setOpen(c, !c.el.classList.contains("is-open"));
-      }
-      if (performance.now() - lastT > 80) c.vel = 0;
-      c.vel = Math.max(-8, Math.min(8, c.vel));
-      c.dragging = false; stage.classList.remove("is-dragging");
+      if (moved) stage._justDragged = true; // swallow the click that follows a drag
+      if (!moved && !cancelled && Math.abs(e.clientY - startY) < 8 && onTap) onTap(e.pointerType || "mouse");
+      if (performance.now() - lastT > 80) t.vel = 0;
+      t.vel = Math.max(-8, Math.min(8, t.vel));
+      t.dragging = false; stage.classList.remove("is-dragging");
     }
     stage.addEventListener("pointerup", function (e) { end(e, false); });
-    stage.addEventListener("pointercancel", function (e) { end(e, true); c.vel = 0; });
+    stage.addEventListener("pointercancel", function (e) { end(e, true); t.vel = 0; });
+    stage.addEventListener("click", function (e) { if (stage._justDragged) { stage._justDragged = false; e.stopPropagation(); e.preventDefault(); } }, true);
+
+    Engine.targets.push(t);
+    if (io) io.observe(stage);
+    if (ro) ro.observe(stage);
+    if (Engine.status === "failed") showFlat(t);
+    else if (slot.tex) stage.classList.add("is-ready");
+    return t;
+  }
+  function dropTarget(t) {
+    if (io) io.unobserve(t.stage);
+    if (ro) ro.unobserve(t.stage);
+    var i = Engine.targets.indexOf(t); if (i >= 0) Engine.targets.splice(i, 1);
+  }
+
+  /* ---------------- Roster cards ---------------- */
+  var cardsById = {}, profilesById = {}, slugById = {};
+  var grid = document.getElementById("grid");
+  var profilesEl = document.getElementById("profiles");
+  var railEl = document.getElementById("rail");
+  var openCard = null;
+
+  function setOpen(c, open) {
+    if (open && openCard && openCard !== c) openCard.el.classList.remove("is-open");
+    c.el.classList.toggle("is-open", open);
+    openCard = open ? c : (openCard === c ? null : openCard);
+  }
+  function goToProfile(id) { location.hash = "#players/" + slugById[id]; }
+
+  function createCard(m) {
+    var c = { id: m._id };
+    var art = el("article", "card");
+    art.tabIndex = 0;
+    var head = el("div", "card-head");
+    var nameBlock = el("div", "name-block");
+    c.nameEl = el("h2", "player-name");
+    c.rankEl = el("span", "rank");
+    nameBlock.appendChild(c.nameEl); nameBlock.appendChild(c.rankEl);
+    c.badgeSlot = el("div"); c.badgeSlot.style.flex = "none";
+    head.appendChild(nameBlock); head.appendChild(c.badgeSlot);
+    c.meter = el("div", "meter"); c.meterFill = el("i"); c.meter.appendChild(c.meterFill);
+
+    c.target = makeStage(getSlot(m._id), false, function (ptype) {
+      if (EDIT_MODE) return; // edit mode: click handler below opens the editor
+      if (ptype === "mouse") return goToProfile(c.id);
+      // touch: first tap shows the quote, second tap opens the profile
+      if (art.classList.contains("is-open")) goToProfile(c.id); else setOpen(c, true);
+    });
+    var stage = c.target.stage;
+    c.bioEl = el("div", "bio"); c.bioText = el("p", "quote"); c.bioEl.appendChild(c.bioText);
+    c.bioEl.appendChild(el("span", "more", "View profile ›"));
+    stage.appendChild(c.bioEl);
+    var tap = el("span", "tap-hint", "i"); tap.setAttribute("aria-hidden", "true");
+    stage.appendChild(tap);
+
+    c.titleEl = el("p", "card-title");
+    art.appendChild(head); art.appendChild(c.meter); art.appendChild(stage); art.appendChild(c.titleEl);
+    c.el = art;
+
+    art.addEventListener("click", function (e) {
+      if (EDIT_MODE) { if (Editor.focusMember) Editor.focusMember(c.id); return; }
+      if (stage.contains(e.target)) return; // the stage handles its own taps
+      goToProfile(c.id);
+    });
     art.addEventListener("keydown", function (e) {
       if (e.target !== art) return;
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOpen(c, !art.classList.contains("is-open")); }
-      if (e.key === "ArrowLeft") { c.vel = -3; }
-      if (e.key === "ArrowRight") { c.vel = 3; }
+      if (e.key === "Enter") { e.preventDefault(); EDIT_MODE ? Editor.focusMember(c.id) : goToProfile(c.id); }
+      if (e.key === " ") { e.preventDefault(); setOpen(c, !art.classList.contains("is-open")); }
+      if (e.key === "ArrowLeft") c.target.vel = -3;
+      if (e.key === "ArrowRight") c.target.vel = 3;
     });
-    art.addEventListener("click", function () { if (EDIT_MODE && Editor.focusMember) Editor.focusMember(c.id); });
-
-    Engine.cards.push(c);
-    if (io) io.observe(stage);
-    if (ro && Engine.cards.length === 1) ro.observe(stage);
     return c;
   }
 
-  function updateCard(c, m, immediate) {
-    var owner = m.owner;
-    var hasRating = !owner && m.rating !== null && ratingValid(m.rating);
-    c.el.classList.toggle("is-owner", owner);
+  function fillBadge(slotEl, m) {
+    slotEl.innerHTML = "";
+    if (m.role === "owner" || (m.role === "manager" && !hasRating(m))) {
+      var mark = el("div", "role-mark " + m.role); mark.innerHTML = ICONS[m.role]; mark.title = ROLE_LABEL[m.role];
+      slotEl.appendChild(mark);
+      return;
+    }
+    var ok = hasRating(m);
+    var qd = el("div", "quips" + (ok ? "" : " is-none"));
+    qd.appendChild(el("span", "quips-value", ok ? fmtRating(m.rating) : "—"));
+    qd.appendChild(el("span", "quips-label", "Quips"));
+    if (ok) qd.dataset.tier = m.rating >= 1.5 ? "high" : (m.rating < 1.0 ? "low" : "mid");
+    qd.title = ok ? "Quips rating " + fmtRating(m.rating) + " (0.1 – 2.0)" : "No Quips rating";
+    slotEl.appendChild(qd);
+  }
+  function fillMeter(meter, fill, m) {
+    var ok = hasRating(m);
+    meter.classList.toggle("full", !ok && m.role !== "member");
+    fill.style.setProperty("--pct", ok ? Math.round(((m.rating - 0.1) / 1.9) * 100) + "%" : "0%");
+  }
+
+  function updateCard(c, m) {
+    var title = m.title.trim(), bio = m.bio.trim();
+    c.el.classList.toggle("is-owner", m.role === "owner");
+    c.el.classList.toggle("is-manager", m.role === "manager");
     c.nameEl.textContent = m.name || "Unnamed";
     c.nameEl.title = m.name;
     c.rankEl.innerHTML = "";
-    if (owner) {
-      var ob = el("span", "owner-badge"); ob.innerHTML = CROWN_SVG; ob.appendChild(document.createTextNode("Owner"));
-      c.rankEl.appendChild(ob);
-    } else {
-      c.rankEl.textContent = "Member";
-    }
-    c.badgeSlot.innerHTML = "";
-    if (owner) {
-      var crown = el("div", "crown-mark"); crown.innerHTML = CROWN_SVG; crown.title = "Team owner";
-      c.badgeSlot.appendChild(crown);
-    } else {
-      var q = el("div", "quips" + (hasRating ? "" : " is-none"));
-      q.appendChild(el("span", "quips-value", hasRating ? fmtRating(m.rating) : "—"));
-      q.appendChild(el("span", "quips-label", "Quips"));
-      if (hasRating) q.dataset.tier = m.rating >= 1.5 ? "high" : (m.rating < 1.0 ? "low" : "mid");
-      q.title = hasRating ? "Quips rating " + fmtRating(m.rating) + " (0.1 – 2.0)" : "No Quips rating";
-      c.badgeSlot.appendChild(q);
-    }
-    c.meterFill.style.setProperty("--pct", hasRating ? Math.round(((m.rating - 0.1) / 1.9) * 100) + "%" : "0%");
-
-    var title = m.title.trim();
+    if (m.role === "member") c.rankEl.textContent = "Member"; else c.rankEl.appendChild(roleBadge(m.role));
+    fillBadge(c.badgeSlot, m);
+    fillMeter(c.meter, c.meterFill, m);
     c.titleEl.textContent = title || state.team.name;
     c.titleEl.classList.toggle("is-placeholder", !title);
-    var bio = m.bio.trim();
     c.bioText.textContent = bio || "Lets their sword do the talking.";
     c.bioEl.classList.toggle("is-placeholder", !bio);
-    c.canvas.setAttribute("aria-label", "3D model of " + (m.name || "a player") + "'s Minecraft skin");
-    c.el.setAttribute("aria-label", (m.name || "Unnamed") + (owner ? ", owner" : hasRating ? ", Quips " + fmtRating(m.rating) : "") + (title ? ", " + title : ""));
+    c.target.canvas.setAttribute("aria-label", "3D model of " + (m.name || "a player") + "'s Minecraft skin");
+    c.el.setAttribute("aria-label", (m.name || "Unnamed") + ", " + ROLE_LABEL[m.role] + (hasRating(m) ? ", Quips " + fmtRating(m.rating) : "") + (title ? ", " + title : ""));
+  }
 
-    var skin = skinNameOf(m);
-    if (skin !== c.skinName) {
-      c.skinName = skin;
-      clearTimeout(c.skinTimer);
-      if (immediate) applySkin(c);
-      else c.skinTimer = setTimeout(function () { applySkin(c); }, 650); // wait until you stop typing
+  /* ---------------- Player profiles (the "Players" tab) ---------------- */
+  function createProfile(m) {
+    var p = { id: m._id };
+    var sec = el("section", "profile");
+    var wrap = el("div", "profile-stage-wrap");
+    p.target = makeStage(getSlot(m._id), true, function () { if (EDIT_MODE && Editor.focusMember) Editor.focusMember(p.id); });
+    wrap.appendChild(p.target.stage);
+    var info = el("div", "profile-info");
+    p.kicker = el("div", "profile-kicker");
+    p.nameEl = el("h2", "profile-name");
+    p.titleEl = el("p", "profile-title");
+    p.ratingEl = el("div", "profile-rating");
+    p.quoteEl = el("p", "profile-quote quote");
+    p.aboutHead = el("h3", null, "About");
+    p.aboutEl = el("div", "profile-about");
+    p.factsEl = el("dl", "facts");
+    p.achHead = el("h3", null, "Achievements");
+    p.achEl = el("ul", "achievements");
+    p.linksEl = el("div", "links");
+    [p.kicker, p.nameEl, p.titleEl, p.ratingEl, p.quoteEl, p.aboutHead, p.aboutEl, p.factsEl, p.achHead, p.achEl, p.linksEl].forEach(function (x) { info.appendChild(x); });
+    p.nextEl = el("a", "next-link");
+    sec.appendChild(wrap); sec.appendChild(info); sec.appendChild(p.nextEl);
+    if (EDIT_MODE) info.addEventListener("click", function () { Editor.focusMember(p.id); });
+    p.el = sec;
+    p.railDot = el("a");
+    return p;
+  }
+
+  function updateProfile(p, m, index, total, next) {
+    var slug = slugById[m._id];
+    p.el.id = "player-" + slug;
+    p.el.setAttribute("aria-label", m.name || "Player");
+    p.kicker.innerHTML = "";
+    p.kicker.appendChild(roleBadge(m.role));
+    p.kicker.appendChild(el("span", "count", String(index + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0")));
+    p.nameEl.textContent = m.name || "Unnamed";
+    var title = m.title.trim();
+    p.titleEl.textContent = title || state.team.name;
+    p.titleEl.classList.toggle("is-placeholder", !title);
+
+    p.ratingEl.innerHTML = "";
+    if (m.role !== "owner") {
+      var ok = hasRating(m);
+      var qd = el("div", "quips" + (ok ? "" : " is-none"));
+      qd.appendChild(el("span", "quips-value", ok ? fmtRating(m.rating) : "—"));
+      qd.appendChild(el("span", "quips-label", ok ? "Quips rating" : "No Quips rating"));
+      if (ok) qd.dataset.tier = m.rating >= 1.5 ? "high" : (m.rating < 1.0 ? "low" : "mid");
+      var meter = el("div", "meter"), fill = el("i"); meter.appendChild(fill);
+      fillMeter(meter, fill, m);
+      p.ratingEl.appendChild(qd); p.ratingEl.appendChild(meter);
+    }
+    p.ratingEl.hidden = m.role === "owner";
+
+    var bio = m.bio.trim();
+    p.quoteEl.textContent = bio;
+    p.quoteEl.hidden = !bio;
+
+    p.aboutEl.innerHTML = "";
+    var about = m.about.trim();
+    (about ? about.split(/\n\s*\n|\n/) : ["Their story is still being written."]).forEach(function (para) {
+      if (para.trim()) p.aboutEl.appendChild(el("p", null, para.trim()));
+    });
+    p.aboutEl.classList.toggle("is-placeholder", !about);
+
+    p.factsEl.innerHTML = "";
+    [["Joined", m.joined], ["Playstyle", m.playstyle]].forEach(function (f) {
+      if (!f[1].trim()) return;
+      var d = el("div"); d.appendChild(el("dt", null, f[0])); d.appendChild(el("dd", null, f[1].trim()));
+      p.factsEl.appendChild(d);
+    });
+    p.factsEl.hidden = !p.factsEl.children.length;
+
+    p.achEl.innerHTML = "";
+    m.achievements.forEach(function (a) { p.achEl.appendChild(el("li", null, a)); });
+    p.achHead.hidden = p.achEl.hidden = !m.achievements.length;
+
+    p.linksEl.innerHTML = "";
+    m.links.forEach(function (u) {
+      var href = safeUrl(u); if (!href) return;
+      var a = el("a", "link-chip", linkLabel(href)); a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer";
+      p.linksEl.appendChild(a);
+    });
+    p.linksEl.hidden = !p.linksEl.children.length;
+
+    p.nextEl.innerHTML = "";
+    if (next) {
+      p.nextEl.href = "#players/" + slugById[next._id];
+      p.nextEl.appendChild(document.createTextNode("Next · " + (next.name || "Unnamed") + " "));
+    } else {
+      p.nextEl.href = "#roster";
+      p.nextEl.appendChild(document.createTextNode("Back to roster "));
+    }
+    p.nextEl.appendChild(el("span", "arrow", next ? "↓" : "↑"));
+    p.railDot.href = "#players/" + slug;
+    p.railDot.title = m.name;
+    p.railDot.setAttribute("aria-label", m.name || "Player");
+    p.target.canvas.setAttribute("aria-label", "3D model of " + (m.name || "a player") + "'s Minecraft skin");
+  }
+
+  var profileIO = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      Object.keys(profilesById).forEach(function (id) { profilesById[id].railDot.classList.toggle("is-active", profilesById[id].el === e.target); });
+    });
+  }, { rootMargin: "-45% 0px -45% 0px" }) : null;
+
+  /* ---------------- Render everything from `state` ---------------- */
+  function renderTeam() {
+    var t = state.team;
+    document.getElementById("team-name").textContent = t.name;
+    document.getElementById("footer-name").textContent = t.name.toUpperCase();
+    document.getElementById("brand-name").textContent = t.name.toUpperCase();
+    var tag = document.getElementById("team-tagline");
+    tag.textContent = t.tagline; tag.hidden = !t.tagline;
+    document.title = t.name + " · Legions";
+
+    var discord = safeUrl(t.discord);
+    var navRight = document.getElementById("nav-right"), heroD = document.getElementById("hero-discord");
+    navRight.innerHTML = ""; heroD.innerHTML = "";
+    if (EDIT_MODE) navRight.appendChild(el("span", "edit-flag", "Edit mode"));
+    if (discord) {
+      var mk = function (big) {
+        var a = el("a", "discord-btn" + (big ? " big" : "")); a.href = discord; a.target = "_blank"; a.rel = "noopener noreferrer";
+        a.innerHTML = ICONS.discord;
+        if (big) a.appendChild(document.createTextNode("Join our Discord"));
+        else { var s = el("span", "label-long", "Discord"); a.appendChild(s); a.setAttribute("aria-label", "Join our Discord"); }
+        return a;
+      };
+      navRight.appendChild(mk(false)); heroD.appendChild(mk(true));
+    }
+
+    var ws = document.getElementById("welcome-slot");
+    ws.innerHTML = "";
+    var msg = t.message.trim();
+    if (msg || EDIT_MODE) {
+      var box = el("div", "welcome" + (msg ? "" : " is-placeholder"));
+      box.appendChild(el("p", null, msg || "(Your welcome message appears here — write it in the editor. Leave it empty to hide this box.)"));
+      if (msg && t.messageBy.trim()) box.appendChild(el("div", "by", t.messageBy.trim()));
+      ws.appendChild(box);
     }
   }
 
-  function render(immediate) {
-    document.getElementById("team-name").textContent = state.team.name;
-    document.getElementById("footer-name").textContent = state.team.name.toUpperCase();
-    var tag = document.getElementById("team-tagline");
-    tag.textContent = state.team.tagline; tag.hidden = !state.team.tagline;
+  function render() {
+    renderTeam();
     var n = state.members.length;
     document.getElementById("member-count").textContent = "The Roster · " + n + (n === 1 ? " member" : " members");
-    document.title = state.team.name + " · Legions";
 
     var sorted = sortMembers(state.members);
-    var alive = {};
+    var used = {};
+    sorted.forEach(function (m) {
+      var s = slugify(m.name), base = s, i = 2;
+      while (used[s]) s = base + "-" + i++;
+      used[s] = true; slugById[m._id] = s;
+    });
+
     // FLIP: remember where cards were so reordering animates smoothly
     var before = {};
     Object.keys(cardsById).forEach(function (id) { before[id] = cardsById[id].el.getBoundingClientRect(); });
 
+    var alive = {};
     sorted.forEach(function (m, i) {
-      var c = cardsById[m._id];
-      var isNew = !c;
-      if (isNew) c = cardsById[m._id] = createCard(m);
       alive[m._id] = true;
-      updateCard(c, m, immediate || isNew);
+      var slot = getSlot(m._id);
+      var c = cardsById[m._id], isNew = !c;
+      if (isNew) c = cardsById[m._id] = createCard(m);
+      var p = profilesById[m._id];
+      if (!p) { p = profilesById[m._id] = createProfile(m); if (profileIO) profileIO.observe(p.el); }
+      updateCard(c, m);
+      updateProfile(p, m, i, sorted.length, sorted[i + 1]);
+      setSlotSkin(slot, skinNameOf(m), m.skinFile || "", isNew);
       if (grid.children[i] !== c.el) grid.insertBefore(c.el, grid.children[i] || null);
+      if (profilesEl.children[i] !== p.el) profilesEl.insertBefore(p.el, profilesEl.children[i] || null);
+      if (railEl.children[i] !== p.railDot) railEl.insertBefore(p.railDot, railEl.children[i] || null);
     });
     Object.keys(cardsById).forEach(function (id) {
-      if (!alive[id]) {
-        var c = cardsById[id];
-        if (io) io.unobserve(c.stage);
-        if (ro) ro.unobserve(c.stage);
-        if (c.tex) c.tex.dispose();
-        c.el.remove();
-        Engine.cards.splice(Engine.cards.indexOf(c), 1);
-        delete cardsById[id];
-        if (openCard === c) openCard = null;
-      }
+      if (alive[id]) return;
+      var c = cardsById[id], p = profilesById[id];
+      dropTarget(c.target); dropTarget(p.target);
+      if (profileIO) profileIO.unobserve(p.el);
+      c.el.remove(); p.el.remove(); p.railDot.remove();
+      var slot = Engine.slots[id]; if (slot && slot.tex) slot.tex.dispose();
+      delete Engine.slots[id]; delete cardsById[id]; delete profilesById[id];
+      if (openCard === c) openCard = null;
     });
-    // keep the draw order matching the page order
-    Engine.cards.sort(function (a, b) { return sorted.findIndex(function (m) { return m._id === a.id; }) - sorted.findIndex(function (m) { return m._id === b.id; }); });
-    if (ro && Engine.cards[0]) { ro.disconnect(); ro.observe(Engine.cards[0].stage); }
-    sizeEngine();
+    queueSize();
 
-    if (!reduceMotion) {
+    if (!reduceMotion && currentView === "roster") {
       Object.keys(before).forEach(function (id) {
         var c = cardsById[id]; if (!c) return;
         var a = before[id], b = c.el.getBoundingClientRect();
@@ -1096,13 +1628,52 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     }
   }
 
-  // tap outside an open card closes its bio
+  /* ---------------- Tabs / routing (#roster, #players, #players/<name>) ---------------- */
+  var currentView = "roster", rosterScroll = 0;
+  function route() {
+    var h = decodeURIComponent(location.hash.replace(/^#/, ""));
+    var view = h.indexOf("players") === 0 ? "players" : "roster";
+    var slug = view === "players" ? h.split("/")[1] : null;
+    if (view !== currentView) {
+      if (currentView === "roster") rosterScroll = window.scrollY;
+      currentView = view;
+      document.getElementById("view-roster").hidden = view !== "roster";
+      document.getElementById("view-players").hidden = view !== "players";
+      document.documentElement.classList.toggle("view-players", view === "players");
+      if (openCard) setOpen(openCard, false);
+    }
+    document.querySelectorAll(".tab").forEach(function (t) {
+      if (t.getAttribute("data-view") === view) t.setAttribute("aria-current", "page"); else t.removeAttribute("aria-current");
+    });
+    sizeTargets();
+    if (view === "players") {
+      var target = slug && document.getElementById("player-" + slug);
+      if (target) target.scrollIntoView({ block: "start" });
+      else window.scrollTo(0, 0);
+    } else {
+      window.scrollTo(0, h === "roster" ? 0 : rosterScroll);
+    }
+  }
+  window.addEventListener("hashchange", route);
+  document.querySelector('.tab[data-view="roster"]').addEventListener("click", function (e) {
+    if (currentView === "roster") { e.preventDefault(); window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); }
+  });
+
+  // tap outside an open card closes its quote
   document.addEventListener("pointerdown", function (e) {
     if (openCard && !openCard.el.contains(e.target)) setOpen(openCard, false);
   });
 
   /* ---------------- Edit mode ---------------- */
   var Editor = { focusMember: null };
+
+  function rowErrors(m) {
+    var out = [];
+    if (!m.name.trim()) out.push("name is empty");
+    if (m.role !== "owner" && !ratingValid(m.rating)) out.push("rating must be 0.1 – 2.0 or blank");
+    if (m.links.some(function (u) { return !safeUrl(u); })) out.push("one of the links isn't a valid web address");
+    return out;
+  }
 
   function initEditor() {
     document.body.classList.add("editing", "editor-open");
@@ -1115,20 +1686,16 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
         try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
       } else {
         state = restored;
-        var when = new Date(draft.savedAt || Date.now());
-        notice = "Restored your unsaved edits from " + when.toLocaleString() + ".";
+        notice = "Restored your unsaved edits from " + new Date(draft.savedAt || Date.now()).toLocaleString() + ".";
         if (draft.base && draft.base !== hash(plain(BAKED))) notice += " Heads up: the published site has changed since these edits were made.";
       }
     }
-
-    var flag = el("div", "edit-flag", "Edit mode");
-    document.body.appendChild(flag);
 
     var panel = el("aside", "editor");
     panel.setAttribute("aria-label", "Site editor");
     panel.innerHTML =
       '<div class="editor-head">' +
-        '<h2><span>Edit roster</span><button type="button" class="btn btn-small" data-act="close">Hide</button></h2>' +
+        '<h2><span>Edit site</span><button type="button" class="btn btn-small" data-act="close">Hide</button></h2>' +
         '<p class="editor-status" data-ref="status">Changes preview instantly. Nothing is public until you upload.</p>' +
         '<div class="editor-actions">' +
           '<button type="button" class="btn btn-primary" data-act="download">⬇ Download updated site</button>' +
@@ -1139,11 +1706,8 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
         '<div class="editor-notice" data-ref="notice" hidden><span data-ref="notice-text"></span><br>' +
           '<button type="button" class="btn btn-small btn-danger" data-act="discard">Discard my edits</button></div>' +
         '<h3 class="editor-section-title">Team</h3>' +
-        '<div class="fields" style="padding:0">' +
-          '<div class="field"><label for="ed-team-name">Team name</label><input type="text" id="ed-team-name" maxlength="40"></div>' +
-          '<div class="field"><label for="ed-team-tag">Tagline</label><input type="text" id="ed-team-tag" maxlength="80"></div>' +
-        '</div>' +
-        '<h3 class="editor-section-title">Members <span style="color:var(--text-dim);letter-spacing:0;text-transform:none;font-family:var(--font-body);font-weight:500">— click a card to jump to it</span></h3>' +
+        '<div class="fields" style="padding:0" data-ref="team"></div>' +
+        '<h3 class="editor-section-title">Members <small>— click a card or profile to jump to it</small></h3>' +
         '<div data-ref="list"></div>' +
         '<button type="button" class="btn btn-wide" data-act="add">+ Add member</button>' +
       '</div>';
@@ -1153,22 +1717,21 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     document.body.appendChild(fab);
 
     var $ = function (ref) { return panel.querySelector('[data-ref="' + ref + '"]'); };
-    var list = $("list"), statusEl = $("status");
+    var listEl = $("list"), statusEl = $("status");
     var rows = {};
-
     if (notice) { $("notice").hidden = false; $("notice-text").textContent = notice; }
 
     function setPanel(open) {
       panel.classList.toggle("is-collapsed", !open);
       document.body.classList.toggle("editor-open", open);
       fab.hidden = open;
-      setTimeout(sizeEngine, 300);
+      setTimeout(sizeTargets, 300);
     }
     fab.addEventListener("click", function () { setPanel(true); });
 
     var saveTimer = null;
     function changed() {
-      render(false);
+      render();
       clearTimeout(saveTimer);
       saveTimer = setTimeout(saveDraft, 250);
     }
@@ -1182,21 +1745,47 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
       }
     }
 
-    var teamName = panel.querySelector("#ed-team-name"), teamTag = panel.querySelector("#ed-team-tag");
-    function fillTeam() { teamName.value = state.team.name; teamTag.value = state.team.tagline; }
-    fillTeam();
-    teamName.addEventListener("input", function () { state.team.name = teamName.value.trim() || "Vanguard"; changed(); });
-    teamTag.addEventListener("input", function () { state.team.tagline = teamTag.value; changed(); });
-
     function field(labelText, input, help) {
       var f = el("div", "field");
       var id = "ed-" + Math.random().toString(36).slice(2, 9);
       var l = el("label", null, labelText); l.htmlFor = id; input.id = id;
       f.appendChild(l); f.appendChild(input);
-      if (help !== undefined) { f.helpEl = el("div", "help", help); f.appendChild(f.helpEl); }
+      f.helpEl = el("div", "help", help || ""); f.helpEl.hidden = help === undefined;
+      f.appendChild(f.helpEl);
       return f;
     }
-    function textInput(value, max) { var i = el("input"); i.type = "text"; i.value = value; i.maxLength = max || 60; i.autocomplete = "off"; i.spellcheck = false; return i; }
+    function textInput(value, max, ph) { var i = el("input"); i.type = "text"; i.value = value; i.maxLength = max || 60; i.autocomplete = "off"; i.spellcheck = false; if (ph) i.placeholder = ph; return i; }
+    function textArea(value, max, ph, tall) { var t = el("textarea", tall ? "tall" : null); t.value = value; t.maxLength = max; t.rows = tall ? 6 : 3; if (ph) t.placeholder = ph; return t; }
+
+    /* Team settings */
+    var teamBox = $("team");
+    function buildTeam() {
+      teamBox.innerHTML = "";
+      var t = state.team;
+      var name = textInput(t.name, 40), tag = textInput(t.tagline, 80);
+      var msg = textArea(t.message, 600, "A few words from the owner or manager, shown under the header.");
+      var by = textInput(t.messageBy, 60, "e.g. Alegged, Owner");
+      var dc = textInput(t.discord, 200, "https://discord.gg/…"); dc.type = "url"; dc.inputMode = "url";
+      var key = textInput(t.editKey, 40, "leave blank for plain ?edit");
+      var fDc = field("Discord invite link", dc, "Leave blank to hide the Discord button.");
+      var fKey = field("Secret edit word", key, "");
+      [field("Team name", name), field("Tagline", tag), field("Welcome message", msg), field("Message signed by", by), fDc, fKey].forEach(function (f) { teamBox.appendChild(f); });
+      function keyHelp() {
+        var k = key.value.trim(), ok = /^[A-Za-z0-9_-]*$/.test(k);
+        fKey.classList.toggle("is-invalid", !ok);
+        fKey.helpEl.textContent = !ok ? "Use only letters, numbers, - or _"
+          : k ? "After you upload, edit mode only opens at …/Vanguard/?edit=" + k + " — write it down!"
+          : "Optional. If set, plain ?edit stops working and you use ?edit=YOURWORD instead.";
+      }
+      function dcHelp() { fDc.classList.toggle("is-invalid", !!dc.value.trim() && !safeUrl(dc.value)); }
+      keyHelp(); dcHelp();
+      name.addEventListener("input", function () { t.name = name.value.trim() || "Vanguard"; changed(); });
+      tag.addEventListener("input", function () { t.tagline = tag.value; changed(); });
+      msg.addEventListener("input", function () { t.message = msg.value; changed(); });
+      by.addEventListener("input", function () { t.messageBy = by.value; changed(); });
+      dc.addEventListener("input", function () { t.discord = dc.value.trim(); dcHelp(); changed(); });
+      key.addEventListener("input", function () { t.editKey = key.value.trim(); keyHelp(); changed(); });
+    }
 
     function buildRow(m, open) {
       var d = el("details", "member-row");
@@ -1208,55 +1797,103 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
       var box = el("div", "fields");
 
       var name = textInput(m.name, 32);
-      var skin = textInput(m.skin, 16); skin.placeholder = "Same as name";
-      var title = textInput(m.title, 40); title.placeholder = 'e.g. "The Lion"';
+      var skin = textInput(m.skin, 16, "Same as name");
+      var role = el("select");
+      ROLES.slice().reverse().forEach(function (r) { var o = el("option", null, ROLE_LABEL[r]); o.value = r; role.appendChild(o); });
+      role.value = m.role;
+      var title = textInput(m.title, 40, 'e.g. "The Lion"');
       var rating = el("input"); rating.type = "number"; rating.step = "0.1"; rating.min = "0.1"; rating.max = "2.0"; rating.inputMode = "decimal";
       rating.value = m.rating === null ? "" : String(m.rating); rating.placeholder = "none";
-      var bio = el("textarea"); bio.value = m.bio; bio.maxLength = 220; bio.rows = 3; bio.placeholder = "A short bio or quote (shown on hover / tap)";
-      var ownerBox = el("label", "check"); var owner = el("input"); owner.type = "checkbox"; owner.checked = m.owner;
-      ownerBox.appendChild(owner); ownerBox.appendChild(document.createTextNode("Owner (crown badge, always first, no rating)"));
+      var bio = textArea(m.bio, 220, "Short quote shown on the card (hover / tap)");
+      var about = textArea(m.about, 3000, "Who they are, what they've done… Each new line starts a new paragraph.", true);
+      var joined = textInput(m.joined, 40, "e.g. March 2025");
+      var play = textInput(m.playstyle, 40, "e.g. Sword main");
+      var ach = textArea(m.achievements.join("\n"), 2000, "One per line, e.g.\nWon Legions Season 3\nTop 5 in kills");
+      var links = textArea(m.links.join("\n"), 1000, "One per line, e.g.\nhttps://youtube.com/@name");
+
+      // skin upload
+      var file = el("input"); file.type = "file"; file.accept = "image/png"; file.hidden = true;
+      var upBtn = el("button", "btn btn-small", "⬆ Upload skin file"); upBtn.type = "button";
+      var clearBtn = el("button", "btn btn-small btn-danger", "Remove uploaded skin"); clearBtn.type = "button";
+      var tools = el("div", "skin-tools"); tools.appendChild(upBtn); tools.appendChild(clearBtn); tools.appendChild(file);
 
       var fName = field("Name on card", name);
       var fSkin = field("Minecraft username (skin)", skin, "");
+      fSkin.appendChild(tools);
+      var fRole = field("Role", role, "Owner first, then Managers, then everyone else by rating.");
       var fTitle = field("Title", title);
       var fRating = field("Quips rating", rating, "0.1 – 2.0, blank = none");
-      var fBio = field("Bio / quote", bio);
       var pair = el("div", "field-row"); pair.appendChild(fTitle); pair.appendChild(fRating);
-      box.appendChild(fName); box.appendChild(fSkin); box.appendChild(pair); box.appendChild(fBio); box.appendChild(ownerBox);
+      var fBio = field("Card quote", bio);
+      var fLinks = field("Links (optional)", links, "");
+      var pair2 = el("div", "field-row"); pair2.appendChild(field("Joined", joined)); pair2.appendChild(field("Playstyle", play));
+      [fName, fSkin, fRole, pair, fBio, el("div", "sub-title", "Profile page"), field("About", about), pair2, field("Achievements", ach), fLinks].forEach(function (x) { box.appendChild(x); });
 
       var foot = el("div", "row-foot");
       var skinStatus = el("span", "skin-status", "");
+      var btns = el("div", "btns");
+      var view = el("a", "btn btn-small", "View profile");
       var del = el("button", "btn btn-small btn-danger", "Remove member"); del.type = "button";
-      foot.appendChild(skinStatus); foot.appendChild(del);
+      btns.appendChild(view); btns.appendChild(del);
+      foot.appendChild(skinStatus); foot.appendChild(btns);
       box.appendChild(foot);
       d.appendChild(box);
 
-      function refreshSummary() {
+      function refresh() {
         sName.textContent = m.name || "(no name)";
-        sMeta.textContent = m.owner ? "♛" : (m.rating === null ? "—" : fmtRating(m.rating));
-        sWarn.textContent = (rowErrors(m).length ? "⚠" : "");
-        fRating.hidden = false;
-        rating.disabled = m.owner;
-        fRating.classList.toggle("is-invalid", !m.owner && !ratingValid(m.rating));
-        fRating.helpEl.textContent = m.owner ? "Owners have no rating" : (!ratingValid(m.rating) ? "Must be between 0.1 and 2.0 (or blank)" : "0.1 – 2.0, blank = none");
-        var sn = skinNameOf(m);
-        var nameOk = /^[A-Za-z0-9_]{3,16}$/.test(sn);
-        fSkin.classList.toggle("is-invalid", !nameOk);
-        fSkin.helpEl.textContent = nameOk ? "Skin updates automatically when they change it in-game." : "Minecraft usernames are 3–16 letters, numbers or _";
+        sMeta.textContent = m.role === "owner" ? "♛" : (m.role === "manager" ? "⛨ " : "") + (m.rating === null ? "—" : fmtRating(m.rating));
+        sWarn.textContent = rowErrors(m).length ? "⚠" : "";
+        rating.disabled = m.role === "owner";
+        fRating.classList.toggle("is-invalid", m.role !== "owner" && !ratingValid(m.rating));
+        fRating.helpEl.textContent = m.role === "owner" ? "Owners have no rating" : (!ratingValid(m.rating) ? "Must be between 0.1 and 2.0 (or blank)" : "0.1 – 2.0, blank = none");
+        var sn = skinNameOf(m), nameOk = /^[A-Za-z0-9_]{3,16}$/.test(sn);
+        fSkin.classList.toggle("is-invalid", !nameOk && !m.skinFile);
+        fSkin.helpEl.textContent = m.skinFile ? "Using an uploaded skin file (it won't change when they change skin in-game)."
+          : nameOk ? "Skin updates automatically when they change it in-game. Wrong or missing skin? Upload their skin file instead."
+          : "Minecraft usernames are 3–16 letters, numbers or _";
+        clearBtn.hidden = !m.skinFile;
+        upBtn.textContent = m.skinFile ? "⬆ Replace skin file" : "⬆ Upload skin file";
+        var bad = m.links.filter(function (u) { return !safeUrl(u); });
+        fLinks.classList.toggle("is-invalid", bad.length > 0);
+        fLinks.helpEl.hidden = !bad.length;
+        fLinks.helpEl.textContent = bad.length ? "Not a valid web address: " + bad[0] : "";
+        view.href = "#players/" + slugById[m._id];
       }
-      refreshSummary();
+      rows[m._id] = { el: d, name: name, statusEl: skinStatus, refresh: refresh };
+      refresh();
 
-      name.addEventListener("input", function () { m.name = name.value; refreshSummary(); changed(); });
-      skin.addEventListener("input", function () { m.skin = skin.value.trim(); skinStatus.textContent = "Loading skin…"; skinStatus.classList.remove("is-bad"); refreshSummary(); changed(); });
+      name.addEventListener("input", function () { m.name = name.value; changed(); refresh(); });
+      skin.addEventListener("input", function () { m.skin = skin.value.trim(); if (!m.skinFile) { skinStatus.textContent = "Loading skin…"; skinStatus.className = "skin-status"; } refresh(); changed(); });
+      role.addEventListener("change", function () { m.role = role.value; if (m.role === "owner") { m.rating = null; rating.value = ""; } refresh(); changed(); });
       title.addEventListener("input", function () { m.title = title.value; changed(); });
       rating.addEventListener("input", function () {
         var raw = rating.value.trim().replace(",", ".");
         m.rating = raw === "" ? null : Number(raw);
         if (raw !== "" && isNaN(m.rating)) m.rating = NaN;
-        refreshSummary(); changed();
+        refresh(); changed();
       });
       bio.addEventListener("input", function () { m.bio = bio.value; changed(); });
-      owner.addEventListener("change", function () { m.owner = owner.checked; refreshSummary(); changed(); });
+      about.addEventListener("input", function () { m.about = about.value; changed(); });
+      joined.addEventListener("input", function () { m.joined = joined.value; changed(); });
+      play.addEventListener("input", function () { m.playstyle = play.value; changed(); });
+      ach.addEventListener("input", function () { m.achievements = list(ach.value); changed(); });
+      links.addEventListener("input", function () { m.links = list(links.value); refresh(); changed(); });
+      upBtn.addEventListener("click", function () { file.click(); });
+      file.addEventListener("change", function () {
+        var f = file.files && file.files[0]; file.value = "";
+        if (!f) return;
+        if (f.size > 200000) { alert("That file is too big to be a Minecraft skin."); return; }
+        var reader = new FileReader();
+        reader.onload = function () {
+          var url = String(reader.result);
+          if (!/^data:image\/png;base64,/.test(url)) { alert("Please choose a .png skin file."); return; }
+          loadImage(url).then(function () {
+            m.skinFile = url; refresh(); changed();
+          }, function () { alert("That doesn't look like a Minecraft skin. Skin files are 64×64 (or 64×32) PNG images."); });
+        };
+        reader.readAsDataURL(f);
+      });
+      clearBtn.addEventListener("click", function () { m.skinFile = ""; refresh(); changed(); });
       del.addEventListener("click", function () {
         if (!confirm("Remove " + (m.name || "this member") + " from the roster?")) return;
         state.members.splice(state.members.indexOf(m), 1);
@@ -1264,28 +1901,26 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
         changed();
       });
       d.addEventListener("toggle", function () {
-        Engine.cards.forEach(function (c) { c.el.classList.toggle("is-selected", d.open && c.id === m._id); });
+        [cardsById[m._id], profilesById[m._id]].forEach(function (x) { if (x) x.el.classList.toggle("is-selected", d.open); });
       });
-
-      rows[m._id] = { el: d, name: name, statusEl: skinStatus };
+      hookSkinStatus(m);
       return d;
     }
 
     function hookSkinStatus(m) {
-      var c = cardsById[m._id], r = rows[m._id];
-      if (!c || !r) return;
+      var slot = Engine.slots[m._id], r = rows[m._id];
+      if (!slot || !r) return;
       var show = function (src) {
-        r.statusEl.textContent = src === "default" ? "Skin not found — showing default skin" : "Skin loaded from " + src;
-        r.statusEl.classList.toggle("is-bad", src === "default");
+        r.statusEl.textContent = src === "default" ? "Skin not found — showing default skin" : src === "uploaded" ? "Using uploaded skin file" : "Skin loaded from " + src;
+        r.statusEl.className = "skin-status" + (src === "default" ? " is-bad" : src === "uploaded" ? " is-up" : "");
       };
-      c.onSkinStatus = show;
-      if (c.source) show(c.source);
+      slot.onStatus = show;
+      if (slot.source) show(slot.source);
     }
 
     function buildList() {
-      list.innerHTML = ""; rows = {};
-      sortMembers(state.members).forEach(function (m) { list.appendChild(buildRow(m, false)); });
-      state.members.forEach(hookSkinStatus);
+      listEl.innerHTML = ""; rows = {};
+      sortMembers(state.members).forEach(function (m) { listEl.appendChild(buildRow(m, false)); });
     }
 
     Editor.focusMember = function (id) {
@@ -1297,12 +1932,10 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     };
 
     function addMember() {
-      var m = normalizeMember({ name: "NewMember", skin: "", title: "", rating: 1.0, bio: "" });
+      var m = normalizeMember({ name: "NewMember", skin: "", role: "member", rating: 1.0 });
       state.members.push(m);
       changed();
-      var row = buildRow(m, true);
-      list.appendChild(row);
-      hookSkinStatus(m);
+      listEl.appendChild(buildRow(m, true));
       Editor.focusMember(m._id);
       rows[m._id].name.focus(); rows[m._id].name.select();
     }
@@ -1318,7 +1951,7 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
         try { localStorage.removeItem(DRAFT_KEY); } catch (err) {}
         state = normalize(stripIds(BAKED));
         $("notice").hidden = true;
-        fillTeam(); render(true); buildList();
+        render(); buildTeam(); buildList();
         statusEl.textContent = "Back to the published version.";
       }
     });
@@ -1326,6 +1959,8 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     function downloadSite() {
       var problems = [];
       state.members.forEach(function (m) { rowErrors(m).forEach(function (p) { problems.push((m.name || "(no name)") + ": " + p); }); });
+      if (state.team.discord && !safeUrl(state.team.discord)) problems.push("Discord link isn't a valid web address");
+      if (!/^[A-Za-z0-9_-]*$/.test(state.team.editKey)) problems.push("Secret edit word: use only letters, numbers, - or _");
       if (problems.length) { alert("Please fix these first:\n\n" + problems.join("\n")); return; }
       getSource().then(function (src) {
         var a = src.indexOf(MARK_START), b = src.indexOf(MARK_END);
@@ -1337,27 +1972,19 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
         var link = el("a"); link.href = url; link.download = "index.html";
         document.body.appendChild(link); link.click(); link.remove();
         setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
-        toast("Saved <b>index.html</b>. Now upload it to your GitHub repository (Add file → Upload files → Commit changes). The site updates in about a minute.", 9000);
+        var k = state.team.editKey;
+        toast("Saved <b>index.html</b>. Now upload it to your GitHub repository (Add file → Upload files → Commit changes). The site updates in about a minute." +
+          (k ? "<br><br>Your edit link will be <b>?edit=" + k + "</b>" : ""), 11000);
       }).catch(function (err) {
         alert("Sorry, the download failed: " + err.message);
       });
     }
 
-    render(true);
+    render();
+    buildTeam();
     buildList();
     if (!notice) saveDraft();
   }
-
-  function rowErrors(m) {
-    var out = [];
-    if (!m.name.trim()) out.push("name is empty");
-    if (!m.owner && !ratingValid(m.rating)) out.push("rating must be 0.1 – 2.0 or blank");
-    return out;
-  }
-  function stripIds(data) {
-    return { team: { name: data.team.name, tagline: data.team.tagline }, members: data.members.map(function (m) { return { name: m.name, skin: m.skin, title: m.title, rating: m.rating, owner: m.owner, bio: m.bio }; }) };
-  }
-  function hash(s) { var h = 5381; for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return String(h >>> 0); }
 
   /* The page's own file: fetched fresh from GitHub Pages, or the startup snapshot as a fallback. */
   function getSource() {
@@ -1382,8 +2009,9 @@ body.editing .card.is-selected { border-color: var(--ice); box-shadow: var(--glo
     state = normalize(stripIds(BAKED)); // editable copy
     initEditor();
   } else {
-    render(true);
+    render();
   }
+  route();
   initEngine();
 })();
 </script>
