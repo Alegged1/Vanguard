@@ -277,6 +277,8 @@ a { color: var(--ice); }
 }
 .discord-btn:hover { box-shadow: 0 0 24px rgba(124, 196, 234, 0.5); transform: translateY(-1px); }
 .discord-btn svg { width: 17px; height: 17px; flex: none; }
+.discord-btn.is-empty { background: transparent; color: var(--ice); border: 1px dashed var(--ice); box-shadow: none; cursor: pointer; font-family: var(--font-body); }
+.discord-btn.is-empty .label-long { display: inline !important; }
 .discord-btn.big { min-height: 44px; padding: 10px 20px; font-size: .9rem; margin-top: 20px; }
 
 /* ---------- Header ---------- */
@@ -574,46 +576,64 @@ a { color: var(--ice); }
 .profiles { position: relative; }
 .profile {
   position: relative;
-  min-height: calc(100vh - var(--nav-h));
-  min-height: calc(100svh - var(--nav-h));
   scroll-snap-align: start;
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  align-items: center;
-  gap: clamp(24px, 5vw, 72px);
-  max-width: 1200px; margin: 0 auto;
-  padding: 36px max(var(--gutter), 3vw) 64px;
-  border-bottom: 1px solid rgba(195, 199, 207, 0.12);
+  max-width: 1240px; margin: 0 auto;
+  padding: 16px max(var(--gutter), 2vw) 56px;
 }
-.profile-stage-wrap { display: flex; justify-content: center; }
-.stage.stage-lg {
-  height: min(74vh, 700px); height: min(74svh, 700px);
-  width: auto; max-width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 0 0 1px rgba(169, 220, 245, 0.08), 0 30px 80px rgba(0, 0, 0, 0.45);
+/* One big rounded frame: the model fills the top, the text box sits at the bottom */
+.profile-frame {
+  position: relative;
+  display: flex; flex-direction: column;
+  height: calc(100vh - var(--nav-h) - 32px);
+  height: calc(100svh - var(--nav-h) - 32px);
+  min-height: 520px;
+  border: 2px solid rgba(169, 220, 245, 0.42);
+  border-radius: 20px;
   background:
-    radial-gradient(ellipse 70% 50% at 50% 42%, rgba(124, 196, 234, 0.22), transparent 70%),
-    linear-gradient(180deg, rgba(19, 35, 90, 0.35), rgba(6, 11, 32, 0.85));
+    radial-gradient(ellipse 55% 50% at 50% 36%, rgba(124, 196, 234, 0.20), transparent 70%),
+    linear-gradient(180deg, rgba(19, 35, 90, 0.55), rgba(6, 11, 32, 0.9));
+  box-shadow: 0 0 40px rgba(124, 196, 234, 0.10), 0 30px 80px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
 }
-.stage.stage-lg::before, .stage.stage-lg::after { width: 22px; height: 22px; }
-.profile-info { min-width: 0; }
-.profile-kicker { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: .74rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
+.profile-frame.is-manager { border-color: rgba(185, 179, 214, 0.55); }
+.stage.stage-lg {
+  flex: 1 1 auto; min-height: 0;
+  width: 100%; height: auto; aspect-ratio: auto;
+  border: 0; border-radius: 0;
+  background: transparent;
+}
+.stage.stage-lg::before, .stage.stage-lg::after { display: none; }
+.stage.stage-lg .floor { left: 38%; right: 38%; bottom: 4%; }
+.frame-text {
+  flex: none;
+  margin: 0 14px 14px;
+  padding: 16px 20px 18px;
+  border: 2px solid rgba(195, 199, 207, 0.35);
+  border-radius: 14px;
+  background: rgba(6, 11, 32, 0.62);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.profile-kicker { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
 .profile-kicker .count { font-family: var(--font-display); color: var(--steel); }
 .profile-kicker .role-badge svg { width: 16px; height: 16px; }
 .profile-name {
-  margin: 10px 0 0;
+  margin: 6px 0 0;
   font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; letter-spacing: .04em;
+  font-size: clamp(1.9rem, 5vw, 3.2rem); line-height: 1.05; letter-spacing: .04em;
   color: var(--paper);
   overflow-wrap: anywhere;
 }
-.profile-title { margin: 8px 0 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(1rem, 2.4vw, 1.35rem); letter-spacing: .12em; color: var(--silver); }
-.profile-title.is-placeholder { color: var(--steel); font-size: .9rem; letter-spacing: .22em; text-transform: uppercase; }
-.profile-rating { display: flex; align-items: center; gap: 16px; margin-top: 22px; max-width: 420px; }
-.profile-rating .quips-value { font-size: clamp(2.4rem, 6vw, 3.4rem); }
+.profile-title { margin: 6px 0 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(.95rem, 2.2vw, 1.25rem); letter-spacing: .12em; color: var(--silver); }
+.profile-title.is-placeholder { color: var(--steel); font-size: .8rem; letter-spacing: .22em; text-transform: uppercase; }
+.profile-rating { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 12px; }
 .profile-rating .quips { text-align: left; }
-.profile-rating .meter { flex: 1; height: 3px; margin: 0; }
-.profile-quote { margin: 24px 0 0; padding: 0 0 0 16px; border-left: 2px solid var(--ice-deep); font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.55; color: var(--text); }
+.profile-rating .quips-value { font-size: clamp(2rem, 5vw, 2.8rem); }
+.profile-rating .meter { flex: none; width: clamp(90px, 18vw, 200px); height: 3px; margin: 0; }
+.profile-quote { margin: 12px 0 0; max-width: 640px; font-size: clamp(.95rem, 1.8vw, 1.08rem); line-height: 1.5; color: var(--text); }
+.profile-more { max-width: 720px; margin: 28px auto 0; text-align: center; }
+.profile-more > h3:first-child { margin-top: 0; }
 .profile h3 { margin: 28px 0 10px; font-family: var(--font-display); font-weight: 700; font-size: .82rem; letter-spacing: .24em; text-transform: uppercase; color: var(--ice); }
 .profile-about p { margin: 0 0 10px; color: var(--text); line-height: 1.7; }
 .profile-about.is-placeholder p { color: var(--text-dim); font-style: italic; }
@@ -621,14 +641,15 @@ a { color: var(--ice); }
 .facts div { padding: 8px 14px; border: 1px solid var(--line); border-radius: 4px; background: rgba(19, 35, 90, 0.45); }
 .facts dt { font-size: .62rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--text-dim); }
 .facts dd { margin: 2px 0 0; font-weight: 600; color: var(--paper); }
-.achievements { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.achievements li { position: relative; padding-left: 24px; line-height: 1.5; }
+.facts { justify-content: center; }
+.achievements { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; justify-items: center; }
+.achievements li { position: relative; padding-left: 20px; line-height: 1.5; }
 .achievements li::before {
-  content: ""; position: absolute; left: 4px; top: .5em; width: 8px; height: 8px;
+  content: ""; position: absolute; left: 0; top: .5em; width: 8px; height: 8px;
   transform: rotate(45deg);
   border: 1px solid var(--ice); background: rgba(169, 220, 245, 0.25);
 }
-.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 24px; }
 .link-chip {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 999px;
@@ -637,8 +658,7 @@ a { color: var(--ice); }
 .link-chip:hover { border-color: var(--ice); box-shadow: 0 0 14px rgba(124, 196, 234, 0.3); }
 .link-chip::after { content: "↗"; color: var(--ice); }
 .next-link {
-  position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%);
-  display: inline-flex; align-items: center; gap: 8px;
+  display: flex; justify-content: center; width: fit-content; margin: 32px auto 0; align-items: center; gap: 8px;
   font-size: .7rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
   color: var(--text-dim); text-decoration: none; white-space: nowrap;
 }
@@ -659,10 +679,11 @@ a { color: var(--ice); }
 .rail a:hover { border-color: var(--ice); }
 .rail a.is-active { background: var(--ice); border-color: var(--ice); box-shadow: 0 0 10px var(--ice-deep); }
 @media (max-width: 1099px) { .rail { display: none; } }
-@media (max-width: 820px) {
-  .profile { grid-template-columns: 1fr; align-content: start; gap: 22px; padding-top: 20px; padding-bottom: 72px; }
-  .stage.stage-lg { height: min(50vh, 500px); height: min(50svh, 500px); }
-  .profile-info { text-align: left; }
+@media (max-width: 640px) {
+  .profile { padding: 10px 10px 48px; }
+  .profile-frame { height: calc(100svh - var(--nav-h) - 20px); min-height: 460px; border-radius: 16px; }
+  .frame-text { margin: 0 8px 8px; padding: 12px 12px 14px; border-radius: 12px; }
+  .profile-more { padding: 0 6px; }
 }
 
 .footer {
@@ -929,7 +950,13 @@ body.editing .is-selected { border-color: var(--ice) !important; box-shadow: var
     u = str(u).trim();
     if (!u) return null;
     if (!/^[a-z][a-z0-9+.-]*:/i.test(u)) u = "https://" + u;
-    try { var p = new URL(u); return (p.protocol === "https:" || p.protocol === "http:") ? p.href : null; } catch (e) { return null; }
+    if (/\s/.test(u)) return null;
+    try {
+      var p = new URL(u);
+      if (p.protocol !== "https:" && p.protocol !== "http:") return null;
+      if (!/^[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}$/i.test(p.hostname)) return null; // must be a real domain
+      return p.href;
+    } catch (e) { return null; }
   }
   function linkLabel(href) {
     var h = new URL(href).hostname.replace(/^www\./, "").toLowerCase();
@@ -1128,7 +1155,7 @@ body.editing .is-selected { border-color: var(--ice) !important; box-shadow: var
       if (rect.width < 2 || rect.height < 2) return; // hidden view
       var w = Math.round(rect.width), h = Math.round(rect.height);
       // cap the internal resolution so very large models stay cheap to draw
-      var r = Math.max(0.75, Math.min(dpr, 2, (t.big ? 1100 : 760) / h));
+      var r = Math.max(0.6, Math.min(dpr, 2, (t.big ? 1100 : 760) / h, Math.sqrt(1600000 / (w * h))));
       r = Math.round(r * 100) / 100;
       var cw = Math.round(w * r), ch = Math.round(h * r);
       t.w = w; t.h = h; t.ratio = r;
@@ -1429,10 +1456,9 @@ body.editing .is-selected { border-color: var(--ice) !important; box-shadow: var
   function createProfile(m) {
     var p = { id: m._id };
     var sec = el("section", "profile");
-    var wrap = el("div", "profile-stage-wrap");
+    p.frame = el("div", "profile-frame");
     p.target = makeStage(getSlot(m._id), true, function () { if (EDIT_MODE && Editor.focusMember) Editor.focusMember(p.id); });
-    wrap.appendChild(p.target.stage);
-    var info = el("div", "profile-info");
+    var textBox = el("div", "frame-text"), more = el("div", "profile-more");
     p.kicker = el("div", "profile-kicker");
     p.nameEl = el("h2", "profile-name");
     p.titleEl = el("p", "profile-title");
@@ -1444,10 +1470,12 @@ body.editing .is-selected { border-color: var(--ice) !important; box-shadow: var
     p.achHead = el("h3", null, "Achievements");
     p.achEl = el("ul", "achievements");
     p.linksEl = el("div", "links");
-    [p.kicker, p.nameEl, p.titleEl, p.ratingEl, p.quoteEl, p.aboutHead, p.aboutEl, p.factsEl, p.achHead, p.achEl, p.linksEl].forEach(function (x) { info.appendChild(x); });
+    [p.kicker, p.nameEl, p.titleEl, p.ratingEl, p.quoteEl].forEach(function (x) { textBox.appendChild(x); });
+    [p.aboutHead, p.aboutEl, p.factsEl, p.achHead, p.achEl, p.linksEl].forEach(function (x) { more.appendChild(x); });
+    p.frame.appendChild(p.target.stage); p.frame.appendChild(textBox);
     p.nextEl = el("a", "next-link");
-    sec.appendChild(wrap); sec.appendChild(info); sec.appendChild(p.nextEl);
-    if (EDIT_MODE) info.addEventListener("click", function () { Editor.focusMember(p.id); });
+    sec.appendChild(p.frame); sec.appendChild(more); sec.appendChild(p.nextEl);
+    if (EDIT_MODE) [textBox, more].forEach(function (x) { x.addEventListener("click", function () { Editor.focusMember(p.id); }); });
     p.el = sec;
     p.railDot = el("a");
     return p;
@@ -1457,6 +1485,7 @@ body.editing .is-selected { border-color: var(--ice) !important; box-shadow: var
     var slug = slugById[m._id];
     p.el.id = "player-" + slug;
     p.el.setAttribute("aria-label", m.name || "Player");
+    p.frame.classList.toggle("is-manager", m.role === "manager");
     p.kicker.innerHTML = "";
     p.kicker.appendChild(roleBadge(m.role));
     p.kicker.appendChild(el("span", "count", String(index + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0")));
@@ -1544,8 +1573,24 @@ body.editing .is-selected { border-color: var(--ice) !important; box-shadow: var
     var discord = safeUrl(t.discord);
     var navRight = document.getElementById("nav-right"), heroD = document.getElementById("hero-discord");
     navRight.innerHTML = ""; heroD.innerHTML = "";
-    if (EDIT_MODE) navRight.appendChild(el("span", "edit-flag", "Edit mode"));
-    if (discord) {
+    if (EDIT_MODE) {
+      navRight.appendChild(el("span", "edit-flag", "Edit mode"));
+      // In edit mode the top-right Discord button is where you paste/change the server link
+      var ed = el("button", "discord-btn" + (discord ? "" : " is-empty")); ed.type = "button";
+      ed.innerHTML = ICONS.discord;
+      ed.appendChild(el("span", "label-long", discord ? "Discord ✎" : "+ Add Discord link"));
+      ed.title = discord ? "Change the Discord link" : "Paste your Discord server invite link";
+      ed.addEventListener("click", function () {
+        var v = prompt("Paste your Discord invite link (e.g. https://discord.gg/abc123).\nLeave it empty to remove the Discord button.", state.team.discord);
+        if (v === null) return;
+        v = v.trim();
+        if (v && !safeUrl(v)) { alert("That doesn't look like a link. It should look like https://discord.gg/abc123"); return; }
+        state.team.discord = v ? safeUrl(v) : "";
+        if (Editor.teamChanged) Editor.teamChanged();
+      });
+      navRight.appendChild(ed);
+      if (discord) { var hb = el("a", "discord-btn big"); hb.href = discord; hb.target = "_blank"; hb.rel = "noopener noreferrer"; hb.innerHTML = ICONS.discord; hb.appendChild(document.createTextNode("Join our Discord")); heroD.appendChild(hb); }
+    } else if (discord) {
       var mk = function (big) {
         var a = el("a", "discord-btn" + (big ? " big" : "")); a.href = discord; a.target = "_blank"; a.rel = "noopener noreferrer";
         a.innerHTML = ICONS.discord;
@@ -1980,6 +2025,7 @@ body.editing .is-selected { border-color: var(--ice) !important; box-shadow: var
       });
     }
 
+    Editor.teamChanged = function () { buildTeam(); changed(); };
     render();
     buildTeam();
     buildList();
